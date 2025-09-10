@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tjenester – Doktor Kliniken Norge</title>
+  <meta name="description" content="Se våre tjenester: legetime, psykolog, fysioterapi/naprapat, vaksinering, blodprøver og bedriftshelse. Bestill digitalt eller på klinikk." />
+  <link rel="canonical" href="https://dittdomene.no/tjenester/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Tjenester – Doktor Kliniken" />
+  <meta property="og:description" content="Legetime, psykolog, fysioterapi/naprapat, vaksinering, blodprøver og bedriftshelse." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://dittdomene.no/tjenester/" />
+  <meta property="og:image" content="https://dittdomene.no/assets/img/og-cover.jpg" />
+  <meta property="og:locale" content="nb_NO" />
+
+  <!-- Icons / PWA -->
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <!-- Calendly ytelse -->
+  <link rel="preconnect" href="https://assets.calendly.com" crossorigin />
+  <link rel="dns-prefetch" href="https://assets.calendly.com" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../assets/css/style.css" />
+
+  <!-- Calendly inline widget CSS -->
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
+</head>
+
+<body>
+  <!-- Skip -->
+  <a class="skip-to-content" href="#main">Hopp til innhold</a>
+
+  <!-- Header (gjenbruk) -->
+  <header class="header" id="header">
+    <nav class="nav container" aria-label="Hovedmeny">
+      <a class="nav__logo" href="../index.html" aria-label="Doktor Kliniken – Hjem">
+        <img class="nav__logo-img" src="../assets/img/logo.png" alt="Doktor Kliniken" width="160" height="36" loading="eager" decoding="async" />
+      </a>
+
+      <div class="nav__menu" id="nav-menu" role="dialog" aria-modal="true" aria-label="Navigasjon">
+        <ul class="nav__list">
+          <li class="nav__item"><a href="../index.html#hjem" class="nav__link">Hjem</a></li>
+          <li class="nav__item"><a href="../tjenester/index.html" class="nav__link active-link" aria-current="page">Tjenester</a></li>
+          <li class="nav__item"><a href="../priser/index.html" class="nav__link">Priser</a></li>
+          <li class="nav__item"><a href="../bestill/index.html" class="nav__link">Bestill time</a></li>
+          <li class="nav__item"><a href="../om-oss/index.html" class="nav__link">Om oss</a></li>
+          <li class="nav__item"><a href="../kontakt/index.html" class="nav__link">Kontakt</a></li>
+        </ul>
+        <button class="nav__close" id="nav-close" aria-label="Lukk meny"><i class="fas fa-times" aria-hidden="true"></i></button>
+      </div>
+
+      <div class="nav__actions">
+        <a href="../bestill/index.html" class="btn btn--primary">Bestill time</a>
+        <button class="nav__toggle" id="nav-toggle" aria-label="Åpne meny"><i class="fas fa-bars" aria-hidden="true"></i></button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main -->
+  <main id="main" class="main">
+    <!-- Page hero -->
+    <section class="page-hero section" aria-labelledby="pg-title">
+      <div class="page-hero__container container">
+        <div class="page-hero__content">
+          <h1 id="pg-title" class="page-hero__title">Våre tjenester</h1>
+          <p class="page-hero__description">
+            Privat helsehjelp – digitalt eller på klinikk. Autorisert helsepersonell og kort ventetid.
+            Åpent hverdager <strong>08:00–20:00</strong>. Etter kl. 20 blir telefonen viderekoblet til
+            døgnbemannet jour for akutte henvendelser.
+          </p>
+          <div class="page-hero__actions">
+            <a class="btn btn--primary" href="#bestill-na"><i class="fas fa-calendar-check"></i> Bestill time</a>
+            <a class="btn btn--secondary" href="../kontakt/index.html"><i class="fas fa-phone"></i> Kontakt oss</a>
+          </div>
+        </div>
+        <div class="page-hero__image">
+          <img src="../assets/img/håndpåskuldra.jpg" alt="Helsepersonell i konsultasjon" class="page-hero__img" loading="eager" decoding="async">
+        </div>
+      </div>
+    </section>
+
+    <!-- Services grid -->
+    <section class="services section" aria-labelledby="svc-title">
+      <div class="container">
+        <div class="section__header">
+          <span class="section__subtitle">Tjenestekategorier</span>
+          <h2 id="svc-title" class="section__title">Hjelpen du trenger – <span class="section__title-accent">når du trenger den</span></h2>
+          <p class="section__description">Klikk inn for detaljer og bestilling. Bedrifter kan få egne avtaler.</p>
+        </div>
+
+        <div class="services__container">
+          <!-- Legetime -->
+          <article class="service__card">
+            <div class="service__icon"><i class="fas fa-stethoscope" aria-hidden="true"></i></div>
+            <h3 class="service__title">Legetime (allmenn)</h3>
+            <p class="service__description">Vanlige/akutte plager, resepter og henvisning. Digitalt eller fysisk besøk.</p>
+            <ul class="service__features">
+              <li><i class="fas fa-check"></i> Kort ventetid</li>
+              <li><i class="fas fa-check"></i> Resept/fornyelse</li>
+              <li><i class="fas fa-check"></i> Henvisning ved behov</li>
+            </ul>
+            <div style="margin-top:1rem;display:flex;gap:.5rem;flex-wrap:wrap">
+              <a class="btn btn--secondary btn--small" href="./legetime.html">Les mer</a>
+              <a class="btn btn--primary btn--small" href="#bestill-na" data-cal-service="legetime">Bestill time</a>
+            </div>
+          </article>
+
+          <!-- Psykolog -->
+          <article class="service__card service__card--featured">
+            <div class="service__badge">Populær</div>
+            <div class="service__icon"><i class="fas fa-brain" aria-hidden="true"></i></div>
+            <h3 class="service__title">Psykolog</h3>
+            <p class="service__description">Samtaleterapi (KAT/KBT) digitalt eller på klinikk. Diskret og tilgjengelig.</p>
+            <ul class="service__features">
+              <li><i class="fas fa-check"></i> Video eller fysisk</li>
+              <li><i class="fas fa-check"></i> Evidensbaserte metoder</li>
+              <li><i class="fas fa-check"></i> Rask oppstart</li>
+            </ul>
+            <div style="margin-top:1rem;display:flex;gap:.5rem;flex-wrap:wrap">
+              <a class="btn btn--secondary btn--small" href="./psykolog.html">Les mer</a>
+              <a class="btn btn--primary btn--small" href="#bestill-na" data-cal-service="psykolog">Bestill time</a>
+            </div>
+          </article>
+
+          <!-- Fysioterapi / Naprapat -->
+          <article class="service__card">
+            <div class="service__icon"><i class="fas fa-person-running" aria-hidden="true"></i></div>
+            <h3 class="service__title">Fysioterapi & Naprapat</h3>
+            <p class="service__description">Muskel-/skjelettplager, akutte smerter og forebyggende behandling.</p>
+            <ul class="service__features">
+              <li><i class="fas fa-check"></i> Klinisk vurdering</li>
+              <li><i class="fas fa-check"></i> Behandling og øvelser</li>
+              <li><i class="fas fa-check"></i> Oppfølging ved behov</li>
+            </ul>
+            <div style="margin-top:1rem;display:flex;gap:.5rem;flex-wrap:wrap">
+              <a class="btn btn--secondary btn--small" href="./naprapat-fysio.html">Les mer</a>
+              <a class="btn btn--primary btn--small" href="#bestill-na" data-cal-service="naprapat">Bestill time</a>
+            </div>
+          </article>
+
+          <!-- Vaksinering (NYTT KORT) -->
+          <article class="service__card">
+            <div class="service__icon"><i class="fas fa-syringe" aria-hidden="true"></i></div>
+            <h3 class="service__title">Vaksinering</h3>
+            <p class="service__description">Grunnvaksiner, reisevaksiner og sesongvaksiner. Vaksineveiledning inkludert.</p>
+            <ul class="service__features">
+              <li><i class="fas fa-check"></i> Rådgivning & doseskjema</li>
+              <li><i class="fas fa-check"></i> Barne- og voksenprogram</li>
+            </ul>
+            <div style="margin-top:1rem;display:flex;gap:.5rem;flex-wrap:wrap">
+              <a class="btn btn--secondary btn--small" href="./vaksinering.html">Les mer</a>
+              <a class="btn btn--primary btn--small" href="#bestill-na" data-cal-service="vaksine">Bestill time</a>
+            </div>
+          </article>
+
+          <!-- Blodprøver -->
+          <article class="service__card">
+            <div class="service__icon"><i class="fas fa-vial" aria-hidden="true"></i></div>
+            <h3 class="service__title">Blodprøver & helsesjekk</h3>
+            <p class="service__description">Standard paneler og målrettede prøver. Legevurdering av svar.</p>
+            <ul class="service__features">
+              <li><i class="fas fa-check"></i> Grunnpakke eller tilpasset</li>
+              <li><i class="fas fa-check"></i> Rask tilbakemelding</li>
+            </ul>
+            <div style="margin-top:1rem;display:flex;gap:.5rem;flex-wrap:wrap">
+              <a class="btn btn--secondary btn--small" href="./blodprover.html">Les mer</a>
+              <a class="btn btn--primary btn--small" href="#bestill-na" data-cal-service="blodprover">Bestill time</a>
+            </div>
+          </article>
+
+          <!-- Bedriftshelse/Abonnement -->
+          <article class="service__card">
+            <div class="service__icon"><i class="fas fa-briefcase-medical" aria-hidden="true"></i></div>
+            <h3 class="service__title">Bedriftshelse & abonnement</h3>
+            <p class="service__description">For bedrifter: rådgivning, helsekontroller og rabatter på øvrige tjenester.</p>
+            <ul class="service__features">
+              <li><i class="fas fa-check"></i> Tilgang til spesialistnettverk</li>
+              <li><i class="fas fa-check"></i> Fordelspriser for ansatte</li>
+            </ul>
+            <div style="margin-top:1rem;display:flex;gap:.5rem;flex-wrap:wrap">
+              <a class="btn btn--secondary btn--small" href="./bedriftshelse.html">Les mer</a>
+              <a class="btn btn--primary btn--small" href="#bestill-na" data-cal-service="bedrift">Be om tilbud</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- INLINE BOOKING -->
+    <section id="bestill-na" class="section" aria-labelledby="book-title">
+      <div class="container">
+        <div class="section__header">
+          <span class="section__subtitle">Bestill</span>
+          <h2 id="book-title" class="section__title">Bestill time <span class="section__title-accent">her og nå</span></h2>
+          <p class="section__description">Velg tjeneste under for å laste riktig kalender. Ingen nedlasting – bestilling skjer direkte på siden.</p>
+        </div>
+
+        <!-- Velger -->
+        <div class="segmented" role="tablist" aria-label="Velg tjeneste for booking" style="display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1rem">
+          <button class="btn btn--chip" role="tab" aria-selected="true" data-cal-service="legetime">Legetime</button>
+          <button class="btn btn--chip" role="tab" aria-selected="false" data-cal-service="psykolog">Psykolog</button>
+          <button class="btn btn--chip" role="tab" aria-selected="false" data-cal-service="naprapat">Naprapat</button>
+          <button class="btn btn--chip" role="tab" aria-selected="false" data-cal-service="vaksine">Vaksinering</button>
+          <button class="btn btn--chip" role="tab" aria-selected="false" data-cal-service="blodprover">Blodprøver</button>
+          <button class="btn btn--chip" role="tab" aria-selected="false" data-cal-service="bedrift">Bedrift</button>
+        </div>
+
+        <!-- Calendly inline mount -->
+        <div id="calendly-root" class="card" style="min-height:720px">
+          <div id="calendly-inline" class="calendly-inline-widget"
+               data-url="https://calendly.com/doktorkliniken/lege?hide_gdpr_banner=1&hide_event_type_details=1&background_color=ffffff&text_color=0a142f&primary_color=0a516d"
+               style="min-width:320px;height:720px;"></div>
+        </div>
+
+        <noscript>For å vise booking må JavaScript være aktivert.</noscript>
+      </div>
+    </section>
+
+    <!-- Kontakt/info-blokk (faktiske data) -->
+    <section class="contact section" aria-labelledby="info-title">
+      <div class="container">
+        <div class="section__header">
+          <span class="section__subtitle">Kontakt & åpningstider</span>
+          <h2 id="info-title" class="section__title">Slik når du oss</h2>
+          <p class="section__description">
+            Telefon: <a href="tel:+46105558816">+46 10 555 88 16</a> · E-post: <a href="mailto:kontakt@doktorkliniken.se">kontakt@doktorkliniken.se</a><br/>
+            Kundeservice hverdager 08–20. Tilgjengelig også helger og røde dager. Etter 20:00 rutes telefonen til døgnbemannet jour (akutte saker).
+          </p>
+        </div>
+
+        <div class="contact__container">
+          <div class="contact__info">
+            <div class="contact__card">
+              <div class="contact__card-icon"><i class="fas fa-location-dot"></i></div>
+              <div>
+                <h3 class="contact__card-title">Hovedkontor</h3>
+                <p class="contact__card-text">
+                  Östra Hamngatan 17, Göteborg, Sverige
+                </p>
+              </div>
+            </div>
+            <div class="contact__card">
+              <div class="contact__card-icon"><i class="fas fa-location-dot"></i></div>
+              <div>
+                <h3 class="contact__card-title">Klinikker</h3>
+                <p class="contact__card-text">
+                  Olof Palmes gata 29, 111 22 Stockholm<br/>
+                  Göteborgsvägen 51, 518 30 Sandared
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Enkel CTA i stedet for skjema -->
+          <form class="contact__form" onsubmit="event.preventDefault();location.href='../bestill/index.html';">
+            <div class="form__group form__group--full">
+              <label class="form__label">Vil du bestille time?</label>
+              <p class="section__description">Klikk på knappen for å gå til bestilling. Ikke send sensitive helseopplysninger på e-post.</p>
+            </div>
+            <button type="submit" class="btn btn--primary btn--large form__submit">
+              <i class="fas fa-calendar-check"></i> Bestill time
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer (gjenbruk) -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__container">
+        <div class="footer__content">
+          <section class="footer__section">
+            <div class="footer__logo"><i class="fas fa-user-doctor"></i><span>Doktor Kliniken</span></div>
+            <p class="footer__description">Privat helsehjelp – digitalt eller på klinikk. Autorisert helsepersonell og trygg journalføring.</p>
+            <div class="footer__social">
+              <a href="#" class="footer__social-link" aria-label="Facebook" target="_blank" rel="noopener nofollow"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="footer__social-link" aria-label="Instagram" target="_blank" rel="noopener nofollow"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="footer__social-link" aria-label="LinkedIn" target="_blank" rel="noopener nofollow"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </section>
+
+          <section class="footer__section">
+            <h3 class="footer__title">Tjenester</h3>
+            <ul class="footer__list">
+              <li><a href="./legetime.html" class="footer__link">Legetime</a></li>
+              <li><a href="./psykolog.html" class="footer__link">Psykolog</a></li>
+              <li><a href="./naprapat-fysio.html" class="footer__link">Fysioterapi & Naprapat</a></li>
+              <li><a href="./vaksinering.html" class="footer__link">Vaksinering</a></li>
+              <li><a href="./blodprover.html" class="footer__link">Blodprøver</a></li>
+              <li><a href="./bedriftshelse.html" class="footer__link">Bedrifter</a></li>
+            </ul>
+          </section>
+
+          <section class="footer__section">
+            <h3 class="footer__title">Selskapet</h3>
+            <ul class="footer__list">
+              <li><a href="../om-oss/index.html" class="footer__link">Om oss</a></li>
+              <li><a href="../ledige-stillinger/index.html" class="footer__link">Karriere</a></li>
+              <li><a href="../kontakt/index.html" class="footer__link">Kontakt</a></li>
+            </ul>
+          </section>
+
+          <section class="footer__section">
+            <h3 class="footer__title">Kontakt</h3>
+            <ul class="footer__list">
+              <li class="footer__contact"><i class="fas fa-phone"></i> <a class="footer__link" href="tel:+46105558816">+46 10 555 88 16</a></li>
+              <li class="footer__contact"><i class="fas fa-envelope"></i> <a class="footer__link" href="mailto:kontakt@doktorkliniken.se">kontakt@doktorkliniken.se</a></li>
+              <li class="footer__contact"><i class="fas fa-file-shield"></i> <a class="footer__link" href="../juridisk/personvern.html">Personvern</a></li>
+            </ul>
+          </section>
+        </div>
+
+        <div class="footer__bottom">
+          <div class="footer__bottom-content">
+            <p class="footer__copyright">© <span id="y"></span> Doktor Kliniken. Alle rettigheter reservert.</p>
+            <div class="footer__legal">
+              <a href="../juridisk/personvern.html" class="footer__legal-link">Personvern</a>
+              <a href="../juridisk/vilkar.html" class="footer__legal-link">Vilkår</a>
+              <a href="#" class="footer__legal-link">Cookies</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to top -->
+  <button class="scroll-top" id="scroll-top" aria-label="Til toppen">
+    <i class="fas fa-arrow-up" aria-hidden="true"></i>
+  </button>
+
+  <!-- JS -->
+  <script src="https://unpkg.com/scrollreveal" defer></script>
+  <script src="../assets/js/script.js" defer></script>
+
+  <!-- Calendly inline widget JS -->
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
+  <script>
+    // År i footer
+    document.addEventListener('DOMContentLoaded',()=>{const y=document.getElementById('y'); if(y) y.textContent=new Date().getFullYear();});
+  </script>
+
+  <script>
+    // Inline booking: bytt tjeneste og initier/oppdater Calendly-widget
+    (function(){
+      const CAL_THEME = "&hide_gdpr_banner=1&hide_event_type_details=1&background_color=ffffff&text_color=0a142f&primary_color=0a516d";
+      const CAL_URLS = {
+        legetime:  "https://calendly.com/doktorkliniken/lege",
+        psykolog:  "https://calendly.com/doktorkliniken/psykolog",
+        naprapat:  "https://calendly.com/doktorkliniken/naprapat",
+        vaksine:   "https://calendly.com/doktorkliniken/vaksinering",
+        blodprover:"https://calendly.com/doktorkliniken/blodprover",
+        bedrift:   "https://calendly.com/doktorkliniken/bedrift"
+      };
+
+      const inlineMount = document.getElementById('calendly-inline');
+
+      function setActiveChip(key){
+        document.querySelectorAll('[data-cal-service]').forEach(btn=>{
+          btn.setAttribute('aria-selected', btn.getAttribute('data-cal-service')===key ? 'true' : 'false');
+        });
+      }
+
+      function initInline(url){
+        if (!window.Calendly || !window.Calendly.initInlineWidget) return;
+        inlineMount.innerHTML = "";
+        inlineMount.setAttribute('data-url', url + CAL_THEME);
+        window.Calendly.initInlineWidget({ url: url + CAL_THEME, parentElement: inlineMount });
+      }
+
+      function pickFromQuery(){
+        const params = new URLSearchParams(location.search);
+        const s = (params.get('service')||'').toLowerCase();
+        return CAL_URLS[s] ? s : 'legetime';
+      }
+
+      function ready(cb){
+        if (document.readyState === 'complete' || document.readyState === 'interactive') cb();
+        else document.addEventListener('DOMContentLoaded', cb);
+      }
+
+      // Init
+      ready(function(){
+        const initialKey = pickFromQuery();
+        setActiveChip(initialKey);
+
+        const wait = setInterval(function(){
+          if (window.Calendly && window.Calendly.initInlineWidget) {
+            clearInterval(wait);
+            initInline(CAL_URLS[initialKey]);
+          }
+        }, 50);
+
+        document.addEventListener('click', function(e){
+          const btn = e.target.closest('[data-cal-service]');
+          if (!btn) return;
+          const key = btn.getAttribute('data-cal-service');
+          const url = CAL_URLS[key];
+          if (!url) return;
+          e.preventDefault();
+          setActiveChip(key);
+          initInline(url);
+          document.getElementById('bestill-na')?.scrollIntoView({behavior:'smooth', block:'start'});
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

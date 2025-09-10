@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Doktor Kliniken Norge – Privat helsehjelp digitalt eller på klinikk</title>
+  <meta name="description" content="Bestill legetime, psykolog eller naprapat. Rask, trygg hjelp med resept, henvisning og oppfølging – digitalt eller på klinikk." />
+  <link rel="canonical" href="https://dittdomene.no/" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Doktor Kliniken Norge – Privat helsehjelp" />
+  <meta property="og:description" content="Bestill legetime, psykolog eller naprapat. Rask, trygg hjelp – digitalt eller på klinikk." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://dittdomene.no/" />
+  <meta property="og:image" content="https://dittdomene.no/assets/img/og-cover.jpg" />
+  <meta property="og:locale" content="nb_NO" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- PWA / Icons -->
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- Preconnects -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <!-- Skip to content -->
+  <a class="skip-to-content" href="#hjem">Hopp til innhold</a>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <nav class="nav container" aria-label="Hovedmeny">
+      <a class="nav__logo" href="index.html" aria-label="Doktor Kliniken – Hjem">
+        <img
+          class="nav__logo-img"
+          src="assets/img/logo.png"
+          alt="Doktor Kliniken"
+          width="160" height="36"
+          loading="eager" decoding="async"
+        />
+      </a>
+
+      <div class="nav__menu" id="nav-menu" role="dialog" aria-modal="true" aria-label="Navigasjon">
+        <ul class="nav__list">
+          <li class="nav__item"><a href="#hjem" class="nav__link active-link" aria-current="page">Hjem</a></li>
+          <li class="nav__item"><a href="tjenester/index.html" class="nav__link">Tjenester</a></li>
+          <li class="nav__item"><a href="priser/index.html" class="nav__link">Priser</a></li>
+          <li class="nav__item"><a href="bestill/index.html" class="nav__link">Bestill time</a></li>
+          <li class="nav__item"><a href="om-oss/index.html" class="nav__link">Om oss</a></li>
+          <li class="nav__item"><a href="kontakt/index.html" class="nav__link">Kontakt</a></li>
+        </ul>
+
+        <button class="nav__close" id="nav-close" aria-label="Lukk meny">
+          <i class="fas fa-times" aria-hidden="true"></i>
+        </button>
+      </div>
+
+      <div class="nav__actions">
+        <a href="bestill/index.html" class="btn btn--primary">Bestill time</a>
+        <button class="nav__toggle" id="nav-toggle" aria-label="Åpne meny">
+          <i class="fas fa-bars" aria-hidden="true"></i>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main -->
+  <main class="main">
+    <!-- Hero -->
+    <section class="hero section" id="hjem" aria-labelledby="hero-title">
+      <div class="hero__container container">
+        <div class="hero__content">
+          <h1 class="hero__title" id="hero-title">
+            Privat helsehjelp – <span class="hero__title-accent">digitalt eller på klinikk</span>
+          </h1>
+          <p class="hero__description">
+            Bestill legetime, psykolog eller naprapat. Rask og trygg hjelp med resept, henvisning og oppfølging – på dine premisser.
+          </p>
+          <div class="hero__actions">
+            <a href="bestill/index.html" class="btn btn--primary btn--large">
+              <i class="fas fa-calendar-check" aria-hidden="true"></i> Bestill time
+            </a>
+            <a href="kontakt/index.html" class="btn btn--secondary btn--large">
+              <i class="fas fa-phone" aria-hidden="true"></i> Kontakt oss
+            </a>
+          </div>
+
+          <div class="hero__stats">
+            <div class="hero__stat">
+              <span class="hero__stat-number" data-countup data-count-to="1000" data-suffix="+" data-duration="2200">0</span>
+              <span class="hero__stat-text">Fornøyde pasienter</span>
+            </div>
+            <div class="hero__stat">
+              <span class="hero__stat-number" data-countup data-count-to="15" data-suffix="+" data-duration="2500">0</span>
+              <span class="hero__stat-text">År med erfaring</span>
+            </div>
+            <div class="hero__stat">
+              <span class="hero__stat-number" data-countup data-count-to="100" data-suffix="%" data-duration="2400">0</span>
+              <span class="hero__stat-text">Fornøydhetsgaranti</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero__image">
+          <picture>
+            <source srcset="assets/img/hero.avif" type="image/avif" />
+            <source srcset="assets/img/hero.w" type="image/webp" />
+            <img
+              src="assets/img/hero.png"
+              alt="Lege og pasient i konsultasjon"
+              class="hero__img"
+              fetchpriority="high"
+              decoding="async"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
+          </picture>
+          <div class="hero__image-overlay" aria-hidden="true">
+            <div class="hero__badge">
+              <i class="fas fa-user-md" aria-hidden="true"></i>
+              <span>Autorisert helsepersonell</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slik fungerer det -->
+    <section class="how-it-works section" id="slik-fungerer-det" aria-labelledby="how-title">
+      <div class="container">
+        <div class="section__header">
+          <span class="section__subtitle">Slik fungerer det</span>
+          <h2 class="section__title" id="how-title">
+            Enkel flyt i <span class="section__title-accent">tre steg</span>
+          </h2>
+          <p class="section__description">Fra timebestilling til oppfølging – trygt og effektivt.</p>
+        </div>
+
+        <ol class="steps" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;counter-reset: step;">
+          <li class="service__card">
+            <h3 class="service__title">Bestill time</h3>
+            <p class="service__description">Velg digitalt eller på klinikk på et tidspunkt som passer.</p>
+          </li>
+          <li class="service__card">
+            <h3 class="service__title">Møt fagpersonen</h3>
+            <p class="service__description">Lege, psykolog, sykepleier eller naprapat – riktig kompetanse for ditt behov.</p>
+          </li>
+          <li class="service__card">
+            <h3 class="service__title">Få hjelp nå</h3>
+            <p class="service__description">Resept, henvisning, attest eller videre behandling/oppfølging.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Tjenester -->
+    <section class="services section" id="tjenester" aria-labelledby="services-title">
+      <div class="container">
+        <div class="section__header">
+          <span class="section__subtitle">Våre tjenester</span>
+          <h2 class="section__title" id="services-title">Hjelpen du trenger – <span class="section__title-accent">når du trenger den</span></h2>
+          <p class="section__description">Klikk deg inn for detaljer, priser og timebestilling.</p>
+        </div>
+
+        <div class="services__container">
+          <!-- Legetime -->
+          <article class="service__card">
+            <div class="service__icon"><i class="fas fa-stethoscope" aria-hidden="true"></i></div>
+            <h3 class="service__title">Legetime</h3>
+            <p class="service__description">Vanlige og akutte plager, resepter og henvisninger – digitalt eller på klinikk.</p>
+            <ul class="service__features">
+              <li><i class="fas fa-check" aria-hidden="true"></i> Kort ventetid</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Resept/fornyelse</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Henvisning ved behov</li>
+            </ul>
+            <div style="margin-top:1rem;display:flex;gap:.5rem;flex-wrap:wrap">
+              <a class="btn btn--secondary btn--small" href="tjenester/legetime.html">Les mer</a>
+              <a class="btn btn--primary btn--small"
+                 href="#"
+                 data-calendly="popup"
+                 data-calendly-url="https://calendly.com/doktorkliniken/lege?hide_gdpr_banner=1&background_color=ffffff&text_color=0a142f&primary_color=0F4C81">Bestill time</a>
+            </div>
+          </article>
+
+          <!-- Psykolog (featured) -->
+          <article class="service__card service__card--featured">
+            <div class="service__badge">Populær</div>
+            <div class="service__icon"><i class="fas fa-brain" aria-hidden="true"></i></div>
+            <h3 class="service__title">Psykolog</h3>
+            <p class="service__description">Samtaleterapi (KAT/KBT) på video eller klinikk. Diskret og tilgjengelig.</p>
+            <ul class="service__features">
+              <li><i class="fas fa-check" aria-hidden="true"></i> Video eller fysisk</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Evidensbasert behandling</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Kort ventetid</li>
+            </ul>
+            <div style="margin-top:1rem;display:flex;gap:.5rem;flex-wrap:wrap">
+              <a class="btn btn--secondary btn--small" href="tjenester/psykolog.html">Les mer</a>
+              <a class="btn btn--primary btn--small"
+                 href="#"
+                 data-calendly="popup"
+                 data-calendly-url="https://calendly.com/doktorkliniken/psykolog?hide_gdpr_banner=1&background_color=ffffff&text_color=0a142f&primary_color=0F4C81">Bestill time</a>
+            </div>
+          </article>
+
+          <!-- Naprapat -->
+          <article class="service__card">
+            <div class="service__icon"><i class="fas fa-person-running" aria-hidden="true"></i></div>
+            <h3 class="service__title">Naprapat</h3>
+            <p class="service__description">Muskel- og skjelettplager, akutte smerter og forebyggende behandling.</p>
+            <ul class="service__features">
+              <li><i class="fas fa-check" aria-hidden="true"></i> Rask vurdering</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Behandling og øvelser</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Oppfølging ved behov</li>
+            </ul>
+            <div style="margin-top:1rem;display:flex;gap:.5rem;flex-wrap:wrap">
+              <a class="btn btn--secondary btn--small" href="tjenester/naprapat-fysio.html">Les mer</a>
+              <a class="btn btn--primary btn--small"
+                 href="#"
+                 data-calendly="popup"
+                 data-calendly-url="https://calendly.com/doktorkliniken/naprapat?hide_gdpr_banner=1&background_color=ffffff&text_color=0a142f&primary_color=0F4C81">Bestill time</a>
+            </div>
+          </article>
+
+          <!-- Vaksinering (NY) -->
+          <article class="service__card">
+            <div class="service__icon"><i class="fas fa-syringe" aria-hidden="true"></i></div>
+            <h3 class="service__title">Vaksinering</h3>
+            <p class="service__description">Grunnvaksiner, reisevaksiner og sesongvaksiner. Vaksineveiledning inkludert.</p>
+            <ul class="service__features">
+              <li><i class="fas fa-check" aria-hidden="true"></i> Rådgivning & doseskjema</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Barne- og voksenprogram</li>
+            </ul>
+            <div style="margin-top:1rem;display:flex;gap:.5rem;flex-wrap:wrap">
+              <a class="btn btn--secondary btn--small" href="tjenester/vaksinering.html">Les mer</a>
+              <a class="btn btn--primary btn--small"
+                 href="#"
+                 data-calendly="popup"
+                 data-calendly-url="https://calendly.com/doktorkliniken/vaksinering?hide_gdpr_banner=1&background_color=ffffff&text_color=0a142f&primary_color=0F4C81">Bestill time</a>
+            </div>
+          </article>
+
+          <!-- Blodprøver -->
+          <article class="service__card">
+            <div class="service__icon"><i class="fas fa-vial" aria-hidden="true"></i></div>
+            <h3 class="service__title">Blodprøver & helsesjekk</h3>
+            <p class="service__description">Standard paneler og målrettede prøver. Rask tilbakemelding.</p>
+            <ul class="service__features">
+              <li><i class="fas fa-check" aria-hidden="true"></i> Grunnpakke eller tilpasset</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Legevurdering av svar</li>
+            </ul>
+            <div style="margin-top:1rem;display:flex;gap:.5rem;flex-wrap:wrap">
+              <a class="btn btn--secondary btn--small" href="tjenester/blodprover.html">Les mer</a>
+              <a class="btn btn--primary btn--small"
+                 href="#"
+                 data-calendly="popup"
+                 data-calendly-url="https://calendly.com/doktorkliniken/blodprover?hide_gdpr_banner=1&background_color=ffffff&text_color=0a142f&primary_color=0F4C81">Bestill time</a>
+            </div>
+          </article>
+
+          <!-- Attester -->
+          <article class="service__card">
+            <div class="service__icon"><i class="fas fa-file-signature" aria-hidden="true"></i></div>
+            <h3 class="service__title">Attester & helseerklæringer</h3>
+            <p class="service__description">Førerkort, sjøfart, idrett m.m. – effektiv og korrekt utførelse.</p>
+            <ul class="service__features">
+              <li><i class="fas fa-check" aria-hidden="true"></i> Riktig dokumentasjon</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Kort behandlingstid</li>
+            </ul>
+            <div style="margin-top:1rem;display:flex;gap:.5rem;flex-wrap:wrap">
+              <a class="btn btn--secondary btn--small" href="tjenester/attester.html">Les mer</a>
+              <a class="btn btn--primary btn--small"
+                 href="#"
+                 data-calendly="popup"
+                 data-calendly-url="https://calendly.com/doktorkliniken/attester?hide_gdpr_banner=1&background_color=ffffff&text_color=0a142f&primary_color=0F4C81">Bestill time</a>
+            </div>
+          </article>
+
+          <!-- Bedriftshelse -->
+          <article class="service__card">
+            <div class="service__icon"><i class="fas fa-briefcase-medical" aria-hidden="true"></i></div>
+            <h3 class="service__title">Bedriftshelse</h3>
+            <p class="service__description">Avtaler for bedrifter: helsekontroller, sykefravær og HMS-støtte.</p>
+            <ul class="service__features">
+              <li><i class="fas fa-check" aria-hidden="true"></i> Skreddersydde avtaler</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Fast kontaktpunkt</li>
+            </ul>
+            <div style="margin-top:1rem;display:flex;gap:.5rem;flex-wrap:wrap">
+              <a class="btn btn--secondary btn--small" href="tjenester/bedriftshelse.html">Les mer</a>
+              <a class="btn btn--primary btn--small"
+                 href="#"
+                 data-calendly="popup"
+                 data-calendly-url="https://calendly.com/doktorkliniken/bedrift?hide_gdpr_banner=1&background_color=ffffff&text_color=0a142f&primary_color=0F4C81">Be om tilbud</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Anbefalinger -->
+    <section class="testimonials section" id="anbefalinger" aria-labelledby="testimonials-title">
+      <div class="container">
+        <div class="section__header">
+          <span class="section__subtitle">Erfaringer</span>
+          <h2 class="section__title" id="testimonials-title">Hva pasientene <span class="section__title-accent">sier om oss</span></h2>
+          <p class="section__description">Korte, anonyme tilbakemeldinger (ikke del personsensitiv info).</p>
+        </div>
+
+        <div class="testimonials__container">
+          <article class="testimonial__card" aria-label="Pasientuttalelse">
+            <div class="testimonial__rating" aria-label="Vurdering 5 av 5">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial__text">“Fikk rask videokonsultasjon og resept samme dag. Veldig fornøyd.”</p>
+            <h4 class="testimonial__author-name">Anonym pasient</h4>
+            <span class="testimonial__author-title">Digital time</span>
+          </article>
+
+          <article class="testimonial__card testimonial__card--featured" aria-label="Pasientuttalelse">
+            <div class="testimonial__rating" aria-label="Vurdering 5 av 5">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial__text">“Profesjonell og trygg psykologtime. Lett å booke og god oppfølging.”</p>
+            <h4 class="testimonial__author-name">Anonym pasient</h4>
+            <span class="testimonial__author-title">Psykolog</span>
+          </article>
+
+          <article class="testimonial__card" aria-label="Pasientuttalelse">
+            <div class="testimonial__rating" aria-label="Vurdering 5 av 5">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial__text">“Fikk rask hjelp for ryggplager hos naprapat. Anbefales.”</p>
+            <h4 class="testimonial__author-name">Anonym pasient</h4>
+            <span class="testimonial__author-title">Naprapat</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kontakt (forsideblokk) -->
+    <section class="contact section" id="kontakt" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="section__header">
+          <span class="section__subtitle">Kontakt</span>
+          <h2 class="section__title" id="contact-title">Ta kontakt med <span class="section__title-accent">Doktor Kliniken</span></h2>
+          <p class="section__description">
+            Ikke send personsensitive opplysninger på e-post. Bruk timebestilling for medisinske henvendelser.
+          </p>
+        </div>
+
+        <div class="contact__container">
+          <div class="contact__info">
+            <div class="contact__card">
+              <div class="contact__card-icon"><i class="fas fa-phone"></i></div>
+              <div>
+                <h3 class="contact__card-title">Ring oss</h3>
+                <p class="contact__card-text"><a href="tel:+4700000000">+47 00 00 00 00</a></p>
+                <span class="contact__card-note">Telefontid hverdager 08:00–20:00</span>
+              </div>
+            </div>
+
+            <div class="contact__card">
+              <div class="contact__card-icon"><i class="fas fa-envelope"></i></div>
+              <div>
+                <h3 class="contact__card-title">E-post</h3>
+                <p class="contact__card-text"><a href="mailto:post@dittdomene.no">post@dittdomene.no</a></p>
+                <span class="contact__card-note">Ikke send sensitive helseopplysninger</span>
+              </div>
+            </div>
+
+            <div class="contact__card">
+              <div class="contact__card-icon"><i class="fas fa-location-dot"></i></div>
+              <div>
+                <h3 class="contact__card-title">Klinikk</h3>
+                <p class="contact__card-text">
+                  <a href="https://maps.google.com" target="_blank" rel="noopener">Adresse kommer</a>
+                </p>
+                <span class="contact__card-note">Digitalt eller på klinikk (snart)</span>
+              </div>
+            </div>
+          </div>
+
+          <form class="contact__form" id="contact-form" novalidate>
+            <div class="form__group">
+              <label for="name" class="form__label">Navn *</label>
+              <input type="text" id="name" name="name" class="form__input" required autocomplete="name" />
+            </div>
+
+            <div class="form__group">
+              <label for="email" class="form__label">E-post *</label>
+              <input type="email" id="email" name="email" class="form__input" required autocomplete="email" inputmode="email" />
+            </div>
+
+            <div class="form__group">
+              <label for="phone" class="form__label">Telefon</label>
+              <input type="tel" id="phone" name="phone" class="form__input" autocomplete="tel" inputmode="tel" pattern="^[0-9 +()\\-]{5,}$" />
+            </div>
+
+            <div class="form__group">
+              <label for="topic" class="form__label">Henvendelse</label>
+              <select id="topic" name="topic" class="form__select">
+                <option value="">Velg</option>
+                <option value="legetime">Legetime</option>
+                <option value="psykolog">Psykolog</option>
+                <option value="naprapat">Naprapat</option>
+                <option value="attester">Attester</option>
+                <option value="annet">Annet</option>
+              </select>
+            </div>
+
+            <div class="form__group form__group--full">
+              <label for="message" class="form__label">Melding *</label>
+              <textarea id="message" name="message" class="form__textarea" rows="5" placeholder="Ikke del sensitive opplysninger her." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn--primary btn--large form__submit" aria-label="Send melding">
+              <i class="fas fa-paper-plane" aria-hidden="true"></i> Send melding
+            </button>
+          </form>
+        </div>
+
+        <div class="contact__map" aria-label="Kart (kommer)">
+          <iframe
+            src="about:blank"
+            title="Kart"
+            class="contact__map-iframe"
+            loading="lazy"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__container">
+        <div class="footer__content">
+          <section class="footer__section">
+            <div class="footer__logo">
+              <i class="fas fa-user-doctor" aria-hidden="true"></i>
+              <span>Doktor Kliniken</span>
+            </div>
+            <p class="footer__description">
+              Privat helsehjelp – digitalt eller på klinikk. Autorisert helsepersonell og trygg journalføring.
+            </p>
+            <div class="footer__social">
+              <a href="#" class="footer__social-link" aria-label="Facebook" target="_blank" rel="noopener nofollow"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="footer__social-link" aria-label="Instagram" target="_blank" rel="noopener nofollow"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="footer__social-link" aria-label="LinkedIn" target="_blank" rel="noopener nofollow"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </section>
+
+          <section class="footer__section">
+            <h3 class="footer__title">Tjenester</h3>
+            <ul class="footer__list">
+              <li><a href="tjenester/legetime.html" class="footer__link">Legetime</a></li>
+              <li><a href="tjenester/psykolog.html" class="footer__link">Psykolog</a></li>
+              <li><a href="tjenester/naprapat-fysio.html" class="footer__link">Fysioterapi & Naprapat</a></li>
+              <li><a href="tjenester/vaksinering.html" class="footer__link">Vaksinering</a></li>
+              <li><a href="tjenester/blodprover.html" class="footer__link">Blodprøver</a></li>
+            </ul>
+          </section>
+
+          <section class="footer__section">
+            <h3 class="footer__title">Selskapet</h3>
+            <ul class="footer__list">
+              <li><a href="om-oss/index.html" class="footer__link">Om oss</a></li>
+              <li><a href="#" class="footer__link">Team</a></li>
+              <li><a href="#" class="footer__link">Karriere</a></li>
+              <li><a href="#" class="footer__link">Nyheter</a></li>
+            </ul>
+          </section>
+
+          <section class="footer__section">
+            <h3 class="footer__title">Kontakt</h3>
+            <ul class="footer__list">
+              <li class="footer__contact"><i class="fas fa-phone"></i>
+                <a href="tel:+4700000000" class="footer__link">+47 00 00 00 00</a>
+              </li>
+              <li class="footer__contact"><i class="fas fa-envelope"></i>
+                <a href="mailto:post@dittdomene.no" class="footer__link">post@dittdomene.no</a>
+              </li>
+              <li class="footer__contact"><i class="fas fa-file-shield"></i>
+                <a href="juridisk/personvern.html" class="footer__link">Personvern</a>
+              </li>
+            </ul>
+          </section>
+        </div>
+
+        <div class="footer__bottom">
+          <div class="footer__bottom-content">
+            <p class="footer__copyright">© <span id="y"></span> Doktor Kliniken. Alle rettigheter reservert.</p>
+            <div class="footer__legal">
+              <a href="juridisk/personvern.html" class="footer__legal-link">Personvern</a>
+              <a href="juridisk/vilkar.html" class="footer__legal-link">Vilkår</a>
+              <a href="#" class="footer__legal-link">Cookies</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to top -->
+  <button class="scroll-top" id="scroll-top" aria-label="Til toppen">
+    <i class="fas fa-arrow-up" aria-hidden="true"></i>
+  </button>
+
+  <!-- Schema.org (MedicalClinic) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"MedicalClinic",
+    "name":"Doktor Kliniken Norge",
+    "url":"https://dittdomene.no",
+    "telephone":"+47 00000000",
+    "medicalSpecialty":["PrimaryCare","Psychiatric","Physiotherapy"],
+    "openingHoursSpecification":[
+      {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"20:00"}
+    ],
+    "areaServed":"NO"
+  }
+  </script>
+
+  <!-- ScrollReveal + felles script -->
+  <script src="https://unpkg.com/scrollreveal" defer></script>
+  <script src="assets/js/script.js" defer></script>
+
+  <script>
+    // år i footer
+    document.addEventListener('DOMContentLoaded',()=>{ const y=document.getElementById('y'); if(y) y.textContent=new Date().getFullYear(); });
+  </script>
+
+  <noscript>For best mulig opplevelse, aktiver JavaScript (animasjoner og skjema krever JS).</noscript>
+</body>
+</html>

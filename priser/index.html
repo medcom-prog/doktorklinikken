@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Priser – Doktor Kliniken Norge</title>
+  <meta name="description" content="Se oppdaterte priser for legetime, psykolog, fysioterapi/naprapat, vaksinering, blodprøver, attester og bedriftshelse. Bestill digitalt eller på klinikk." />
+  <link rel="canonical" href="https://dittdomene.no/priser/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Priser – Doktor Kliniken" />
+  <meta property="og:description" content="Privat og bedrift: legetime, psykolog, fysio/naprapat, blodprøver, vaksinering og attester." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://dittdomene.no/priser/" />
+  <meta property="og:image" content="https://dittdomene.no/assets/img/og-cover.jpg" />
+  <meta property="og:locale" content="nb_NO" />
+
+  <!-- Icons / PWA -->
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../assets/css/style.css" />
+
+  <!-- (Valgfritt) Minimal lokaltabell-stil – kan flyttes til style.css -->
+  <style>
+    .price-tabs{ display:flex; gap:.5rem; flex-wrap:wrap; justify-content:center; margin:1rem 0 0; }
+    .price-tab{ border:1px solid var(--border); background:#fff; padding:.5rem 1rem; border-radius:999px; cursor:pointer; font-weight:600; color:var(--primary-color); }
+    .price-tab[aria-selected="true"]{ color:#fff; background:var(--gradient-primary); border-color:transparent; }
+    .price-section{ display:none; }
+    .price-section.active{ display:block; }
+    .price-grid{ display:grid; gap:1rem; grid-template-columns:repeat(auto-fit, minmax(320px,1fr)); margin-top:1rem; }
+    .price-card .service__features{ margin-top:.5rem; }
+    .price-row{ display:flex; justify-content:space-between; gap:1rem; align-items:center; padding:.5rem 0; border-bottom:1px dashed var(--border); }
+    .price-row:last-child{ border-bottom:0; }
+    .price-label{ display:flex; align-items:center; gap:.5rem; }
+    .price-amt{ font-weight:800; color:var(--primary-color); white-space:nowrap; }
+    .muted{ color:var(--text-light); font-size:.9rem; }
+    .notice{ padding:1rem; border:1px solid var(--border); border-radius:var(--radius-lg); background:#fff; }
+    @media (max-width:480px){ .price-row{ flex-direction:column; align-items:flex-start; gap:.25rem; } }
+  </style>
+</head>
+<body>
+  <!-- Skip -->
+  <a class="skip-to-content" href="#main">Hopp til innhold</a>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <nav class="nav container" aria-label="Hovedmeny">
+      <a class="nav__logo" href="../index.html" aria-label="Doktor Kliniken – Hjem">
+        <img class="nav__logo-img" src="../assets/img/logo.png" alt="Doktor Kliniken" width="160" height="36" loading="eager" decoding="async" />
+      </a>
+
+      <div class="nav__menu" id="nav-menu" role="dialog" aria-modal="true" aria-label="Navigasjon">
+        <ul class="nav__list">
+          <li class="nav__item"><a href="../index.html#hjem" class="nav__link">Hjem</a></li>
+          <li class="nav__item"><a href="../tjenester/index.html" class="nav__link">Tjenester</a></li>
+          <li class="nav__item"><a href="./index.html" class="nav__link active-link" aria-current="page">Priser</a></li>
+          <li class="nav__item"><a href="../bestill/index.html" class="nav__link">Bestill time</a></li>
+          <li class="nav__item"><a href="../om-oss/index.html" class="nav__link">Om oss</a></li>
+          <li class="nav__item"><a href="../kontakt/index.html" class="nav__link">Kontakt</a></li>
+        </ul>
+        <button class="nav__close" id="nav-close" aria-label="Lukk meny"><i class="fas fa-times" aria-hidden="true"></i></button>
+      </div>
+
+      <div class="nav__actions">
+        <a href="#book" class="btn btn--primary">Bestill time</a>
+        <button class="nav__toggle" id="nav-toggle" aria-label="Åpne meny"><i class="fas fa-bars" aria-hidden="true"></i></button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main -->
+  <main id="main" class="main">
+    <!-- Page hero -->
+    <section class="page-hero section" aria-labelledby="pg-title">
+      <div class="page-hero__container container">
+        <div class="page-hero__content">
+          
+          <h1 id="pg-title" class="page-hero__title">Priser</h1>
+          <p class="page-hero__description">
+            Her finner du oversikt over vanlige tjenester. Endelig pris kan variere med varighet/omfang og eventuelle
+            laboratoriekostnader eller materiell. Kontakt oss om du er usikker på hva du trenger.
+          </p>
+
+          <div class="page-hero__actions">
+            <a class="btn btn--primary" href="#book" data-calendly="https://calendly.com/doktorkliniken/lege"><i class="fas fa-calendar-check"></i> Bestill time</a>
+            <a class="btn btn--secondary" href="../kontakt/index.html"><i class="fas fa-phone"></i> Kontakt oss</a>
+          </div>
+        </div>
+        <div class="page-hero__image">
+          <img src="../assets/img/priser-hero.jpg" alt="Konsultasjon hos helsepersonell" class="page-hero__img" loading="eager" decoding="async">
+        </div>
+      </div>
+    </section>
+
+    <!-- Pris-tabs -->
+    <section class="section" aria-labelledby="tabs-title">
+      <div class="container">
+        <div class="section__header">
+          <span class="section__subtitle">Velg kategori</span>
+          <h2 id="tabs-title" class="section__title">Privat & bedrift</h2>
+          <p class="section__description">Klikk på fanene for å se priseksempler. Bedriftspriser settes ofte i avtale.</p>
+          <div class="price-tabs" role="tablist" aria-label="Priskategorier">
+            <button class="price-tab" id="tab-privat" role="tab" aria-controls="panel-privat" aria-selected="true">Privat</button>
+            <button class="price-tab" id="tab-bedrift" role="tab" aria-controls="panel-bedrift" aria-selected="false">Bedrift</button>
+          </div>
+        </div>
+
+        <!-- PRIVAT -->
+        <div id="panel-privat" class="price-section active" role="tabpanel" aria-labelledby="tab-privat">
+          <div class="price-grid">
+            <!-- Lege -->
+            <article class="service__card price-card">
+              <div class="service__icon"><i class="fas fa-stethoscope" aria-hidden="true"></i></div>
+              <h3 class="service__title">Legetime</h3>
+              <p class="muted">Allmenn konsultasjon (digital/klinikk), resept, henvisning, vurderinger.</p>
+              <div class="service__features">
+                <div class="price-row">
+                  <span class="price-label"><i class="fas fa-video"></i> Digital konsultasjon (inntil 15–20 min)</span>
+                  <span class="price-amt" data-price="lege_digital">fra –</span>
+                </div>
+                <div class="price-row">
+                  <span class="price-label"><i class="fas fa-house-chimney-medical"></i> Klinikkonsultasjon (inntil 20 min)</span>
+                  <span class="price-amt" data-price="lege_klinikk">fra –</span>
+                </div>
+                <div class="price-row">
+                  <span class="price-label"><i class="fas fa-prescription-bottle-medical"></i> Resept/fornyelse</span>
+                  <span class="price-amt" data-price="lege_resept">–</span>
+                </div>
+              </div>
+              <div style="margin-top:1rem;display:flex;gap:.5rem;flex-wrap:wrap">
+                <a class="btn btn--secondary btn--small" href="../tjenester/legetime.html">Les mer</a>
+                <a class="btn btn--primary btn--small" href="#book" data-calendly="https://calendly.com/doktorkliniken/lege">Bestill legetime</a>
+              </div>
+            </article>
+
+            <!-- Psykolog -->
+            <article class="service__card price-card service__card--featured">
+              <div class="service__badge">Populær</div>
+              <div class="service__icon"><i class="fas fa-brain" aria-hidden="true"></i></div>
+              <h3 class="service__title">Psykolog</h3>
+              <p class="muted">Samtaleterapi (KAT/KBT) digitalt eller på klinikk.</p>
+              <div class="service__features">
+                <div class="price-row">
+                  <span class="price-label"><i class="fas fa-user-clock"></i> 45 min økt</span>
+                  <span class="price-amt" data-price="psykolog_45">–</span>
+                </div>
+                <div class="price-row">
+                  <span class="price-label"><i class="fas fa-user-clock"></i> 60 min økt</span>
+                  <span class="price-amt" data-price="psykolog_60">–</span>
+                </div>
+              </div>
+              <div style="margin-top:1rem;display:flex;gap:.5rem;flex-wrap:wrap">
+                <a class="btn btn--secondary btn--small" href="../tjenester/psykolog.html">Les mer</a>
+                <a class="btn btn--primary btn--small" href="#book" data-calendly="https://calendly.com/doktorkliniken/psykolog">Bestill psykolog</a>
+              </div>
+            </article>
+
+            <!-- Fysio/Naprapat -->
+            <article class="service__card price-card">
+              <div class="service__icon"><i class="fas fa-person-running" aria-hidden="true"></i></div>
+              <h3 class="service__title">Fysioterapi & Naprapat</h3>
+              <p class="muted">Vurdering, behandling og øvelser for muskel-/skjelettplager.</p>
+              <div class="service__features">
+                <div class="price-row">
+                  <span class="price-label"><i class="fas fa-hand-holding-medical"></i> Førstegangskonsultasjon (40–45 min)</span>
+                  <span class="price-amt" data-price="naprapat_forst">–</span>
+                </div>
+                <div class="price-row">
+                  <span class="price-label"><i class="fas fa-repeat"></i> Oppfølging (25–30 min)</span>
+                  <span class="price-amt" data-price="naprapat_oppf">–</span>
+                </div>
+              </div>
+              <div style="margin-top:1rem;display:flex;gap:.5rem;flex-wrap:wrap">
+                <a class="btn btn--secondary btn--small" href="../tjenester/naprapat-fysio.html">Les mer</a>
+                <a class="btn btn--primary btn--small" href="#book" data-calendly="https://calendly.com/doktorkliniken/naprapat">Bestill time</a>
+              </div>
+            </article>
+
+            <!-- Vaksinering -->
+            <article class="service__card price-card">
+              <div class="service__icon"><i class="fas fa-syringe" aria-hidden="true"></i></div>
+              <h3 class="service__title">Vaksinering</h3>
+              <p class="muted">Konsultasjon og gjennomføring. Vaksinekostnad tilkommer etter type.</p>
+              <div class="service__features">
+                <div class="price-row">
+                  <span class="price-label"><i class="fas fa-clipboard-check"></i> Vaksinekonsultasjon</span>
+                  <span class="price-amt" data-price="vaksine_konsult">–</span>
+                </div>
+                <div class="price-row">
+                  <span class="price-label"><i class="fas fa-syringe"></i> Administrasjonsgebyr pr. vaksine</span>
+                  <span class="price-amt" data-price="vaksine_admin">–</span>
+                </div>
+              </div>
+              <div style="margin-top:1rem;display:flex;gap:.5rem;flex-wrap:wrap">
+                <a class="btn btn--secondary btn--small" href="../tjenester/vaksinering.html">Les mer</a>
+                <a class="btn btn--primary btn--small" href="#book" data-calendly="https://calendly.com/doktorkliniken/vaksinering">Bestill vaksinering</a>
+              </div>
+            </article>
+
+            <!-- Blodprøver -->
+            <article class="service__card price-card">
+              <div class="service__icon"><i class="fas fa-vial" aria-hidden="true"></i></div>
+              <h3 class="service__title">Blodprøver & helsesjekk</h3>
+              <p class="muted">Standard paneler og målrettede prøver. Labsvar vurderes av lege.</p>
+              <div class="service__features">
+                <div class="price-row">
+                  <span class="price-label"><i class="fas fa-list-check"></i> Grunnpakke (basispanel)</span>
+                  <span class="price-amt" data-price="blod_grunn">–</span>
+                </div>
+                <div class="price-row">
+                  <span class="price-label"><i class="fas fa-flask"></i> Tillegg per spesialprøve</span>
+                  <span class="price-amt" data-price="blod_tillegg">–</span>
+                </div>
+              </div>
+              <div style="margin-top:1rem;display:flex;gap:.5rem;flex-wrap:wrap">
+                <a class="btn btn--secondary btn--small" href="../tjenester/blodprover.html">Les mer</a>
+                <a class="btn btn--primary btn--small" href="#book" data-calendly="https://calendly.com/doktorkliniken/blodprover">Bestill time</a>
+              </div>
+            </article>
+
+            <!-- Attester -->
+            <article class="service__card price-card">
+              <div class="service__icon"><i class="fas fa-file-signature" aria-hidden="true"></i></div>
+              <h3 class="service__title">Attester & erklæringer</h3>
+              <p class="muted">Førerkort, sjøfart, idrett m.m. Pris avhenger av type og omfang.</p>
+              <div class="service__features">
+                <div class="price-row">
+                  <span class="price-label"><i class="fas fa-id-card"></i> Førerkortattest (eksempel)</span>
+                  <span class="price-amt" data-price="attest_forerkort">–</span>
+                </div>
+                <div class="price-row">
+                  <span class="price-label"><i class="fas fa-file"></i> Øvrige attester</span>
+                  <span class="price-amt">på forespørsel</span>
+                </div>
+              </div>
+              <div style="margin-top:1rem;display:flex;gap:.5rem;flex-wrap:wrap">
+                <a class="btn btn--secondary btn--small" href="../tjenester/attester.html">Les mer</a>
+                <a class="btn btn--primary btn--small" href="#book" data-calendly="https://calendly.com/doktorkliniken/attester">Bestill attest</a>
+              </div>
+            </article>
+          </div>
+
+          <div class="notice" style="margin-top:1rem">
+            <p class="muted"><strong>Merk:</strong> Prisene over er veiledende/«fra»-priser. Endelig pris vises i booking eller avtales før behandling. Avbestilling senest 24 timer før – ellers kan time belastes.</p>
+          </div>
+        </div>
+
+        <!-- BEDRIFT -->
+        <div id="panel-bedrift" class="price-section" role="tabpanel" aria-labelledby="tab-bedrift">
+          <div class="price-grid">
+            <article class="service__card price-card">
+              <div class="service__icon"><i class="fas fa-briefcase-medical" aria-hidden="true"></i></div>
+              <h3 class="service__title">Bedriftshelse</h3>
+              <p class="muted">Skreddersydde avtaler for helsekontroller, sykefraværsoppfølging og HMS-støtte.</p>
+              <div class="service__features">
+                <div class="price-row">
+                  <span class="price-label"><i class="fas fa-people-group"></i> Årlig avtale (pakke, per ansatt)</span>
+                  <span class="price-amt" data-price="bedrift_avtale">på forespørsel</span>
+                </div>
+                <div class="price-row">
+                  <span class="price-label"><i class="fas fa-stethoscope"></i> Helsekontroll (enkeltstående)</span>
+                  <span class="price-amt" data-price="bedrift_helsekontroll">–</span>
+                </div>
+                <div class="price-row">
+                  <span class="price-label"><i class="fas fa-chalkboard-user"></i> HMS-rådgivning / workshop (per time)</span>
+                  <span class="price-amt" data-price="bedrift_hms">–</span>
+                </div>
+              </div>
+              <div style="margin-top:1rem;display:flex;gap:.5rem;flex-wrap:wrap">
+                <a class="btn btn--secondary btn--small" href="../tjenester/bedriftshelse.html">Les mer</a>
+                <a class="btn btn--primary btn--small" href="#book" data-calendly="https://calendly.com/doktorkliniken/bedrift">Be om tilbud</a>
+              </div>
+            </article>
+          </div>
+
+          <div class="notice" style="margin-top:1rem">
+            <p class="muted"><strong>Tips:</strong> Vi tilbyr forutsigbare bedriftsavtaler med fast kontaktpunkt og fordelspriser for ansatte.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Booking-CTA -->
+    <section id="book" class="section" style="background:var(--light-gray)" aria-labelledby="book-title">
+      <div class="container">
+        <div class="section__header">
+          <span class="section__subtitle">Bestill</span>
+          <h2 id="book-title" class="section__title">Bestill time</h2>
+          <p class="section__description">Velg tjeneste og tidspunkt i kalenderen. Du kan endre/avbestille fra bekreftelses-epost/SMS.</p>
+        </div>
+
+        <div class="service__card" style="display:flex; gap:.5rem; flex-wrap:wrap;">
+          <a class="btn btn--primary" data-calendly="https://calendly.com/doktorkliniken/lege"><i class="fas fa-stethoscope"></i> Lege</a>
+          <a class="btn btn--primary" data-calendly="https://calendly.com/doktorkliniken/psykolog"><i class="fas fa-brain"></i> Psykolog</a>
+          <a class="btn btn--primary" data-calendly="https://calendly.com/doktorkliniken/naprapat"><i class="fas fa-person-running"></i> Fysio/Naprapat</a>
+          <a class="btn btn--primary" data-calendly="https://calendly.com/doktorkliniken/blodprover"><i class="fas fa-vial"></i> Blodprøver</a>
+          <a class="btn btn--primary" data-calendly="https://calendly.com/doktorkliniken/vaksinering"><i class="fas fa-syringe"></i> Vaksinering</a>
+          <a class="btn btn--secondary" href="../kontakt/index.html"><i class="fas fa-phone"></i> Spør oss</a>
+        </div>
+
+        <div class="notice" style="margin-top:1rem">
+          <p class="muted"><strong>Betaling:</strong> Kort/Vipps. <strong>Avbestilling:</strong> senest 24 t før. <strong>E-resept & henvisning:</strong> utstedes ved medisinsk behov.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__container">
+        <div class="footer__content">
+          <section class="footer__section">
+            <div class="footer__logo"><i class="fas fa-user-doctor" aria-hidden="true"></i><span>Doktor Kliniken</span></div>
+            <p class="footer__description">Privat helsehjelp – digitalt eller på klinikk. Autorisert helsepersonell og trygg journalføring.</p>
+            <div class="footer__social">
+              <a href="#" class="footer__social-link" aria-label="Facebook" target="_blank" rel="noopener nofollow"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="footer__social-link" aria-label="Instagram" target="_blank" rel="noopener nofollow"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="footer__social-link" aria-label="LinkedIn" target="_blank" rel="noopener nofollow"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </section>
+
+          <section class="footer__section">
+            <h3 class="footer__title">Tjenester</h3>
+            <ul class="footer__list">
+              <li><a href="../tjenester/legetime.html" class="footer__link">Legetime</a></li>
+              <li><a href="../tjenester/psykolog.html" class="footer__link">Psykolog</a></li>
+              <li><a href="../tjenester/naprapat-fysio.html" class="footer__link">Fysioterapi & Naprapat</a></li>
+              <li><a href="../tjenester/vaksinering.html" class="footer__link">Vaksinering</a></li>
+              <li><a href="../tjenester/blodprover.html" class="footer__link">Blodprøver</a></li>
+              <li><a href="../tjenester/attester.html" class="footer__link">Attester</a></li>
+              <li><a href="../tjenester/bedriftshelse.html" class="footer__link">Bedriftshelse</a></li>
+            </ul>
+          </section>
+
+          <section class="footer__section">
+            <h3 class="footer__title">Selskapet</h3>
+            <ul class="footer__list">
+              <li><a href="../om-oss/index.html" class="footer__link">Om oss</a></li>
+              <li><a href="../ledige-stillinger/index.html" class="footer__link">Karriere</a></li>
+              <li><a href="../kontakt/index.html" class="footer__link">Kontakt</a></li>
+            </ul>
+          </section>
+
+          <section class="footer__section">
+            <h3 class="footer__title">Kontakt</h3>
+            <ul class="footer__list">
+              <li class="footer__contact"><i class="fas fa-phone"></i> <a class="footer__link" href="tel:+46105558816">+46 10 555 88 16</a></li>
+              <li class="footer__contact"><i class="fas fa-envelope"></i> <a class="footer__link" href="mailto:kontakt@doktorkliniken.se">kontakt@doktorkliniken.se</a></li>
+              <li class="footer__contact"><i class="fas fa-file-shield"></i> <a class="footer__link" href="../juridisk/personvern.html">Personvern</a></li>
+            </ul>
+          </section>
+        </div>
+
+        <div class="footer__bottom">
+          <div class="footer__bottom-content">
+            <p class="footer__copyright">© <span id="y"></span> Doktor Kliniken. Alle rettigheter reservert.</p>
+            <div class="footer__legal">
+              <a href="../juridisk/personvern.html" class="footer__legal-link">Personvern</a>
+              <a href="../juridisk/vilkar.html" class="footer__legal-link">Vilkår</a>
+              <a href="#" class="footer__legal-link">Cookies</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to top -->
+  <button class="scroll-top" id="scroll-top" aria-label="Til toppen">
+    <i class="fas fa-arrow-up" aria-hidden="true"></i>
+  </button>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/scrollreveal" defer></script>
+  <script src="../assets/js/script.js" defer></script>
+  <!-- Calendly popup -->
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  <script>
+    // år i footer
+    document.addEventListener('DOMContentLoaded',()=>{ const y=document.getElementById('y'); if(y) y.textContent=new Date().getFullYear(); });
+
+    // Tabs
+    (function(){
+      const tabs=[...document.querySelectorAll('.price-tab')];
+      const panels=[...document.querySelectorAll('.price-section')];
+      function activate(id){
+        tabs.forEach(t=>t.setAttribute('aria-selected', t.id===id ? 'true' : 'false'));
+        panels.forEach(p=>p.classList.toggle('active', p.id===document.getElementById(id).getAttribute('aria-controls')));
+      }
+      tabs.forEach(t=>t.addEventListener('click', ()=>activate(t.id)));
+    })();
+
+    // Calendly popup handler (fallback til redirect)
+    document.addEventListener('click', (e)=>{
+      const a = e.target.closest('[data-calendly]');
+      if(!a) return;
+      e.preventDefault();
+      const url = a.getAttribute('data-calendly');
+      if (window.Calendly) Calendly.initPopupWidget({ url });
+      else window.location.href = url;
+    });
+
+    // (Valgfritt) Hent priser fra JSON hvis tilgjengelig: /data/priser.json
+    // Struktur-eksempel:
+    // {
+    //   "lege_digital":"695,-",
+    //   "lege_klinikk":"895,-",
+    //   "lege_resept":"0–199,-",
+    //   "psykolog_45":"1190,-",
+    //   "psykolog_60":"1390,-",
+    //   "naprapat_forst":"790,-",
+    //   "naprapat_oppf":"690,-",
+    //   "vaksine_konsult":"390,-",
+    //   "vaksine_admin":"150,-",
+    //   "blod_grunn":"990,-",
+    //   "blod_tillegg":"fra 120,-",
+    //   "attest_forerkort":"990,-",
+    //   "bedrift_helsekontroll":"på forespørsel",
+    //   "bedrift_hms":"1200,-/t",
+    //   "bedrift_avtale":"på forespørsel"
+    // }
+    fetch('../data/priser.json').then(r=>r.ok?r.json():null).then(data=>{
+      if(!data) return;
+      document.querySelectorAll('[data-price]').forEach(el=>{
+        const key=el.getAttribute('data-price');
+        if(data[key]) el.textContent = data[key];
+      });
+    }).catch(()=>{/* ignorer hvis ingen fil */});
+  </script>
+
+  <!-- Schema.org (OfferCatalog, minimal) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"OfferCatalog",
+    "name":"Priser – Doktor Kliniken Norge",
+    "itemListElement":[
+      {"@type":"Offer","itemOffered":{"@type":"MedicalProcedure","name":"Legetime"},"priceCurrency":"NOK"},
+      {"@type":"Offer","itemOffered":{"@type":"TherapeuticProcedure","name":"Psykolog"},"priceCurrency":"NOK"},
+      {"@type":"Offer","itemOffered":{"@type":"TherapeuticProcedure","name":"Fysioterapi & Naprapat"},"priceCurrency":"NOK"},
+      {"@type":"Offer","itemOffered":{"@type":"MedicalProcedure","name":"Vaksinering"},"priceCurrency":"NOK"},
+      {"@type":"Offer","itemOffered":{"@type":"MedicalTest","name":"Blodprøver & helsesjekk"},"priceCurrency":"NOK"},
+      {"@type":"Offer","itemOffered":{"@type":"MedicalProcedure","name":"Attester & erklæringer"},"priceCurrency":"NOK"},
+      {"@type":"Offer","itemOffered":{"@type":"MedicalBusiness","name":"Bedriftshelse"},"priceCurrency":"NOK"}
+    ],
+    "url":"https://dittdomene.no/priser/"
+  }
+  </script>
+</body>
+</html>

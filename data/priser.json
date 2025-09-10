@@ -1,0 +1,23 @@
+{
+  "lege_digital": "695,-",
+  "lege_klinikk": "895,-",
+  "lege_resept": "0–199,-",
+
+  "psykolog_45": "1 190,-",
+  "psykolog_60": "1 390,-",
+
+  "naprapat_forst": "790,-",
+  "naprapat_oppf": "690,-",
+
+  "vaksine_konsult": "390,-",
+  "vaksine_admin": "150,-",
+
+  "blod_grunn": "990,-",
+  "blod_tillegg": "fra 120,-",
+
+  "attest_forerkort": "990,-",
+
+  "bedrift_helsekontroll": "på forespørsel",
+  "bedrift_hms": "1 200,-/t",
+  "bedrift_avtale": "på forespørsel"
+}
