@@ -146,7 +146,7 @@
               <div class="service__badge">Populær</div>
               <div class="service__icon"><i class="fas fa-brain" aria-hidden="true"></i></div>
               <h3 class="service__title">Psykolog</h3>
-              <p class="muted">Samtaleterapi (KAT/KBT) digitalt eller på klinikk.</p>
+              <p class="muted" style="color: white;">Samtaleterapi (KAT/KBT) digitalt eller på klinikk.</p>
               <div class="service__features">
                 <div class="price-row">
                   <span class="price-label"><i class="fas fa-user-clock"></i> 45 min økt</span>
@@ -289,28 +289,50 @@
     </section>
 
     <!-- Booking-CTA -->
-    <section id="book" class="section" style="background:var(--light-gray)" aria-labelledby="book-title">
+     <section id="booking" class="section" aria-labelledby="book-title">
       <div class="container">
         <div class="section__header">
-          <span class="section__subtitle">Bestill</span>
-          <h2 id="book-title" class="section__title">Bestill time</h2>
-          <p class="section__description">Velg tjeneste og tidspunkt i kalenderen. Du kan endre/avbestille fra bekreftelses-epost/SMS.</p>
+          <span class="section__subtitle">Online timebestilling</span>
+          <h2 id="book-title" class="section__title">Velg tjeneste <span class="section__title-accent">og bestill</span></h2>
+          <p class="section__description">Du kan også åpne i popup fra forsiden. Her viser vi booking inline for enkel oversikt.</p>
         </div>
 
-        <div class="service__card" style="display:flex; gap:.5rem; flex-wrap:wrap;">
-          <a class="btn btn--primary" data-calendly="https://calendly.com/doktorkliniken/lege"><i class="fas fa-stethoscope"></i> Lege</a>
-          <a class="btn btn--primary" data-calendly="https://calendly.com/doktorkliniken/psykolog"><i class="fas fa-brain"></i> Psykolog</a>
-          <a class="btn btn--primary" data-calendly="https://calendly.com/doktorkliniken/naprapat"><i class="fas fa-person-running"></i> Fysio/Naprapat</a>
-          <a class="btn btn--primary" data-calendly="https://calendly.com/doktorkliniken/blodprover"><i class="fas fa-vial"></i> Blodprøver</a>
-          <a class="btn btn--primary" data-calendly="https://calendly.com/doktorkliniken/vaksinering"><i class="fas fa-syringe"></i> Vaksinering</a>
-          <a class="btn btn--secondary" href="../kontakt/index.html"><i class="fas fa-phone"></i> Spør oss</a>
+        <!-- Tjenestevelger -->
+        <div role="tablist" aria-label="Velg tjeneste" class="cta__container" style="display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center;margin-bottom:1rem">
+          <button class="btn btn--secondary" data-svc="legetime" role="tab" aria-selected="true"><i class="fas fa-stethoscope"></i> Lege</button>
+          <button class="btn btn--secondary" data-svc="psykolog" role="tab" aria-selected="false"><i class="fas fa-brain"></i> Psykolog</button>
+          <button class="btn btn--secondary" data-svc="naprapat" role="tab" aria-selected="false"><i class="fas fa-person-running"></i> Naprapat/Fysio</button>
+          <button class="btn btn--secondary" data-svc="blodprover" role="tab" aria-selected="false"><i class="fas fa-vial"></i> Blodprøver</button>
+          <button class="btn btn--secondary" data-svc="vaksinering" role="tab" aria-selected="false"><i class="fas fa-syringe"></i> Vaksinering</button>
+          <button class="btn btn--secondary" data-svc="bedrift" role="tab" aria-selected="false"><i class="fas fa-briefcase-medical"></i> Bedrift</button>
         </div>
 
-        <div class="notice" style="margin-top:1rem">
-          <p class="muted"><strong>Betaling:</strong> Kort/Vipps. <strong>Avbestilling:</strong> senest 24 t før. <strong>E-resept & henvisning:</strong> utstedes ved medisinsk behov.</p>
+        <!-- Knapper for valgt tjeneste -->
+        <div id="booking-quick" style="display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center;margin-bottom:1rem">
+          <!-- fylles av JS med korrekt popup-url per tjeneste -->
         </div>
+
+        <!-- Inline Calendly container (JS kan bytte URL dynamisk) -->
+        <div
+          id="calendly-inline"
+          data-calendly="inline"
+          data-calendly-url="https://calendly.com/doktorkliniken/lege?utm_source=web-no&utm_medium=site&utm_campaign=booking"
+          data-utm-source="web-no"
+          data-utm-medium="site"
+          data-utm-campaign="booking"
+          style="min-height:740px;width:100%;border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-sm)"
+          aria-label="Booking-widget"
+        ></div>
+
+        <noscript>
+          <p class="section__description" style="margin-top:1rem">
+            JavaScript er av. Du kan bestille direkte via
+            <a href="https://calendly.com/doktorkliniken/lege" rel="noopener" target="_blank">vår bookinglenke</a>.
+          </p>
+        </noscript>
       </div>
     </section>
+
   </main>
 
   <!-- Footer -->
