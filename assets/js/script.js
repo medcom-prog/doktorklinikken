@@ -525,3 +525,119 @@ const debounce = (fn, ms = 300) => {
   container.appendChild(ol);
   mount.hidden = false;
 })();
+/* ---------- ScrollReveal (valgfritt) ---------- */
+(() => {
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  document.addEventListener("DOMContentLoaded", () => {
+    if (typeof ScrollReveal === "undefined" || prefersReducedMotion) return;
+
+    const sr = ScrollReveal({
+      origin: "bottom",
+      distance: "24px",
+      duration: 800,
+      delay: 120,
+      easing: "cubic-bezier(.2,.6,.2,1)",
+      mobile: true,
+      cleanup: true,
+      reset: false,
+      viewFactor: 0.12,
+    });
+
+    const targets = [
+      // Forside-hero
+      ".hero__content",
+      ".hero__image",
+      // Page-hero (undersider, inkl. /tjenester/)
+      ".page-hero__content",
+      ".page-hero__image",
+      // Vanlige seksjoner
+      ".section__header",
+      ".service__card",
+      ".testimonial__card",
+      ".contact__card",
+      ".contact__form",
+      ".cta__container",
+      ".footer__section",
+    ].join(", ");
+
+    sr.reveal(targets, { interval: 90 });
+  });
+})();
+/* ---------- Nyhetsbrev / påminnelse (vaksinebuss) ---------- */
+(() => {
+  const form = document.getElementById('newsletter-form');
+  if (!form) return;
+
+  const emailEl  = form.querySelector('#news-email');
+  const postEl   = form.querySelector('#news-postnr');
+
+  function show(msg) {
+    // Vis en liten inline-beskjed (unngå alert)
+    let note = form.querySelector('[data-note]');
+    if (!note) {
+      note = document.createElement('p');
+      note.setAttribute('data-note', '1');
+      note.className = 'card__text';
+      form.appendChild(note);
+    }
+    note.textContent = msg;
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const email = (emailEl?.value || '').trim();
+    const post  = (postEl?.value || '').trim();
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+    if (!emailPattern.test(email)) { emailEl?.focus(); return show('Oppgi en gyldig e-post.'); }
+    if (post && !/^[0-9]{4}$/.test(post)) { postEl?.focus(); return show('Postnummer må være 4 siffer (valgfritt).'); }
+
+    // TODO: Koble til e-postleverandør (Mailchimp/Sendinblue/Make/Zapier)
+    // Eksempel:
+    // await fetch('/api/newsletter', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({ email, postnr: post }) });
+
+    show('Takk! Vi varsler deg når vaksinebussen er i nærheten.');
+    form.reset();
+  });
+})();
+
+/* ---------- Drop-in tabell: enkel renderer ---------- */
+/* Bruk: sett window.DK_DROPIN = [
+ *   { date: '2025-05-20', place: 'Oslo, Rådhusplassen', time: '12–18', vaccines: 'Influensa, TBE' },
+ *   { date: '2025-05-22', place: 'Lillestrøm Torv',      time: '10–16', vaccines: 'TBE, Hep A' }
+ * ];
+ */
+(() => {
+  const section = document.getElementById('dropin');
+  if (!section) return;
+  const tbody = section.querySelector('.table tbody');
+  if (!tbody) return;
+
+  const rows = Array.isArray(window.DK_DROPIN) ? window.DK_DROPIN : [];
+  if (!rows.length) return; // beholder placeholder-raden
+
+  tbody.innerHTML = '';
+  rows.forEach(({ date, place, time, vaccines }) => {
+    const tr = document.createElement('tr');
+
+    const tdDate = document.createElement('td');
+    tdDate.textContent = date || '';
+    tdDate.setAttribute('data-th', 'Dato');
+
+    const tdPlace = document.createElement('td');
+    tdPlace.textContent = place || '';
+    tdPlace.setAttribute('data-th', 'Sted');
+
+    const tdTime = document.createElement('td');
+    tdTime.textContent = time || '';
+    tdTime.setAttribute('data-th', 'Tid');
+
+    const tdVac = document.createElement('td');
+    tdVac.textContent = vaccines || '';
+    tdVac.setAttribute('data-th', 'Vaksiner');
+
+    tr.append(tdDate, tdPlace, tdTime, tdVac);
+    tbody.appendChild(tr);
+  });
+})();

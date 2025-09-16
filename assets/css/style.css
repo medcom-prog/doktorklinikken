@@ -120,7 +120,7 @@ input,select,textarea{ font:inherit; color:inherit; }
    ========================= */
 .header{
   position:fixed; inset:0 0 auto 0; height:var(--header-height);
-  background:#fff; /* fjernet blur/frosted */
+  background:#fff;
   box-shadow:var(--shadow-sm); z-index:var(--z-fixed);
   transition:background .25s ease, box-shadow .25s ease, transform .2s ease;
 }
@@ -168,10 +168,9 @@ input,select,textarea{ font:inherit; color:inherit; }
   }
   .nav__menu.show-menu{ transform: translateX(0); }
 
-  /* backdrop legges dynamisk av JS (uten blur) */
   .nav__backdrop{
     position: fixed; inset: 0;
-    background: rgba(15,23,42,.45); /* ingen backdrop-filter */
+    background: rgba(15,23,42,.45);
     opacity: 0; visibility: hidden;
     transition: opacity .25s ease, visibility .25s ease;
     z-index: calc(var(--z-modal) - 1);
@@ -189,21 +188,11 @@ input,select,textarea{ font:inherit; color:inherit; }
   }
 }
 
-/* Desktop reset for nav/off-canvas (hindrer hamburger på desktop) */
+/* Desktop reset for nav/off-canvas */
 @media (min-width: 769px){
   .nav__toggle,
   .nav__close{ display: none !important; }
-
-  .nav__menu{
-    position: static !important;
-    inset: auto !important;
-    width: auto !important;
-    transform: none !important;
-    background: transparent !important;
-    padding: 0 !important;
-    box-shadow: none !important;
-  }
-
+  .nav__menu{ position: static !important; width:auto !important; transform:none !important; background:transparent !important; padding:0 !important; box-shadow:none !important; }
   .nav__list{ flex-direction: row !important; gap: 2rem; }
   .nav__backdrop{ display: none !important; }
 }
@@ -218,13 +207,11 @@ input,select,textarea{ font:inherit; color:inherit; }
   transition:transform .15s ease, box-shadow .15s ease, background .2s ease;
   white-space:nowrap; box-shadow:var(--shadow-sm);
 }
-.btn:hover{ transform:translateY(-1px); box-shadow:var(--shadow-md); }
+@media (hover:hover){ .btn:hover{ transform:translateY(-1px); box-shadow:var(--shadow-md); } }
 .btn--small{ padding:.6rem 1rem; font-size:.95rem; min-height:40px; }
 .btn--large{ padding:1rem 1.5rem; font-size:var(--h4-font-size); }
 .btn--primary{ color:#fff; background:var(--gradient-primary); }
-.btn--secondary{
-  color:var(--primary-color); background:#fff; border:2px solid var(--primary-color);
-}
+.btn--secondary{ color:var(--primary-color); background:#fff; border:2px solid var(--primary-color); }
 .btn--secondary:hover{ color:#fff; background:var(--primary-color); }
 
 /* Chips (segmentert valg) */
@@ -268,7 +255,7 @@ input,select,textarea{ font:inherit; color:inherit; }
 }
 .hero__badge{
   display:inline-flex; align-items:center; gap:.5rem;
-  background:#fff; /* fjernet glass/blur */
+  background:#fff;
   color:var(--primary-color);
   padding:.6rem .85rem; border-radius:.75rem;
   box-shadow:var(--shadow-sm); position:relative; overflow:hidden;
@@ -292,9 +279,9 @@ input,select,textarea{ font:inherit; color:inherit; }
 }
 
 /* =========================
-   HOW IT WORKS (reuse service card)
+   HOW IT WORKS
    ========================= */
-.steps{ counter-reset:step; }
+.steps{ counter-reset:step; list-style:none; padding-left:0; margin-left:0; }
 .steps .service__card::before{
   counter-increment:step; content:counter(step);
   display:inline-flex; align-items:center; justify-content:center;
@@ -317,10 +304,8 @@ input,select,textarea{ font:inherit; color:inherit; }
   background:#fff; border:1px solid var(--border); border-radius:var(--radius-lg);
   padding:2rem; box-shadow:var(--shadow-sm); transition:transform .2s ease, box-shadow .2s ease;
 }
-.service__card:hover{ transform:translateY(-6px); box-shadow:var(--shadow-md); }
-.service__card--featured{
-  background:var(--gradient-primary); color:#fff; border-color:transparent;
-}
+@media (hover:hover){ .service__card:hover{ transform:translateY(-6px); box-shadow:var(--shadow-md); } }
+.service__card--featured{ background:var(--gradient-primary); color:#fff; border-color:transparent; }
 .service__badge{
   position:absolute; inset:auto 1rem 1rem auto;
   background:rgba(255,255,255,.15); color:#fff; padding:.35rem .6rem;
@@ -333,13 +318,17 @@ input,select,textarea{ font:inherit; color:inherit; }
   margin-bottom:1rem; font-size:1.35rem;
 }
 .service__card--featured .service__icon{ background:rgba(255,255,255,.2); }
-.service__title{ font-size:var(--h3-font-size); color:var(--primary-color); margin-bottom:.5rem; }
+.service__title{
+  display:flex; align-items:center; gap:.55rem;
+  font-size:var(--h3-font-size); color:var(--primary-color); margin-bottom:.5rem;
+}
+.service__title i{ color:var(--secondary-color); font-size:1.05em; }
 .service__card--featured .service__title,
 .service__card--featured .service__description{ color:#fff; }
 .service__description{ color:var(--text-light); margin-bottom:1rem; }
 .service__features{ display:flex; flex-direction:column; gap:.5rem; }
-.service__features li{ display:flex; align-items:center; gap:.5rem; color:var(--text-color); font-size:.95rem; }
-.service__features i{ color:var(--success-color); }
+.service__features li{ display:flex; align-items:flex-start; gap:.5rem; color:var(--text-color); font-size:.95rem; }
+.service__features i{ color:var(--success-color); flex-shrink:0; }
 
 /* =========================
    TESTIMONIALS
@@ -353,7 +342,7 @@ input,select,textarea{ font:inherit; color:inherit; }
   background:#fff; border:1px solid var(--border); border-radius:var(--radius-lg);
   padding:1.5rem; box-shadow:var(--shadow-sm); transition:transform .2s ease, box-shadow .2s ease;
 }
-.testimonial__card:hover{ transform:translateY(-4px); box-shadow:var(--shadow-md); }
+@media (hover:hover){ .testimonial__card:hover{ transform:translateY(-4px); box-shadow:var(--shadow-md); } }
 .testimonial__card--featured{ background:var(--gradient-primary); color:#fff; border-color:transparent; }
 .testimonial__rating{ display:flex; gap:.25rem; margin-bottom:.75rem; }
 .testimonial__rating i{ color:var(--warning-color); }
@@ -373,7 +362,7 @@ input,select,textarea{ font:inherit; color:inherit; }
   background:#fff; border:1px solid var(--border); border-radius:var(--radius-lg);
   padding:1.25rem; box-shadow:var(--shadow-sm); transition:box-shadow .2s ease;
 }
-.contact__card:hover{ box-shadow:var(--shadow-md); }
+@media (hover:hover){ .contact__card:hover{ box-shadow:var(--shadow-md); } }
 .contact__card-icon{
   width:3rem; height:3rem; border-radius:.75rem; display:grid; place-items:center; color:#fff;
   background:linear-gradient(135deg, var(--secondary-color), var(--accent-color));
@@ -404,20 +393,16 @@ input,select,textarea{ font:inherit; color:inherit; }
 .contact__map{ margin-top:1.25rem; border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-md); }
 .contact__map-iframe{ width:100%; height:380px; border:0; }
 
-/* Skjul tomt kart (om src er blank) */
+/* Skjul tomt kart */
 .contact__map:has(iframe[src="about:blank"]),
-.contact__map:has(iframe:not([src])) {
-  display: none !important;
-}
+.contact__map:has(iframe:not([src])) { display:none !important; }
 
 /* =========================
    FOOTER
    ========================= */
 .footer{ background:var(--primary-color); color:#fff; padding:3rem 0 1rem; }
 .footer__container{ display:grid; gap:2rem; }
-.footer__content{
-  display:grid; gap:2rem; grid-template-columns:2fr 1fr 1fr 1fr;
-}
+.footer__content{ display:grid; gap:2rem; grid-template-columns:2fr 1fr 1fr 1fr; }
 .footer__logo{ display:flex; align-items:center; gap:.6rem; font-weight:800; font-size:1.125rem; }
 .footer__description{ color:rgba(255,255,255,.9); margin:.5rem 0 1rem; max-width:46ch; }
 .footer__social{ display:flex; gap:.6rem; }
@@ -425,7 +410,7 @@ input,select,textarea{ font:inherit; color:inherit; }
   width:2.5rem; height:2.5rem; display:grid; place-items:center; border-radius:50%;
   background:rgba(255,255,255,.1); color:#fff; transition:transform .15s ease, background .2s ease;
 }
-.footer__social-link:hover{ transform:translateY(-2px); background:rgba(255,255,255,.18); }
+@media (hover:hover){ .footer__social-link:hover{ transform:translateY(-2px); background:rgba(255,255,255,.18); } }
 .footer__title{ font-size:1rem; margin-bottom:.75rem; }
 .footer__list{ display:flex; flex-direction:column; gap:.35rem; }
 .footer__link{ color:rgba(255,255,255,.9); }
@@ -450,7 +435,7 @@ input,select,textarea{ font:inherit; color:inherit; }
   z-index:var(--z-tooltip);
 }
 .scroll-top.show{ opacity:1; visibility:visible; }
-.scroll-top:hover{ transform:translateY(-2px); }
+@media (hover:hover){ .scroll-top:hover{ transform:translateY(-2px); } }
 
 /* =========================
    UTILITIES / MISC
@@ -459,7 +444,6 @@ input,select,textarea{ font:inherit; color:inherit; }
 .animate-fade-up{ animation:fadeInUp .8s ease both; }
 @keyframes fadeInUp{ from{opacity:0; transform:translateY(24px)} to{opacity:1; transform:none} }
 
-/* Cards & grids brukt på tjenestesider */
 .grid{ display:grid; gap:1.5rem; }
 .grid--2{ grid-template-columns:1.25fr .9fr; }
 @media (max-width:992px){ .grid--2{ grid-template-columns:1fr; } }
@@ -475,7 +459,6 @@ input,select,textarea{ font:inherit; color:inherit; }
 .card__title{ font-size:var(--h4-font-size); color:var(--primary-color); margin-bottom:.35rem; }
 .card__text{ color:var(--text-light); }
 
-/* Lister */
 .list{ display:flex; flex-direction:column; gap:.5rem; }
 .list--check li{ position:relative; padding-left:1.6rem; }
 .list--check li::before{
@@ -487,15 +470,11 @@ input,select,textarea{ font:inherit; color:inherit; }
 
 /* Calendly inline (inne i .card) */
 #calendly-inline .calendly-inline-widget{ width:100%; min-height:700px; }
-#calendly-inline .calendly-inline-widget iframe{
-  border:0 !important; border-radius:0 0 var(--radius-lg) var(--radius-lg);
-}
-@media (max-width:768px){
-  #calendly-inline .calendly-inline-widget{ min-height:780px; }
-}
+#calendly-inline .calendly-inline-widget iframe{ border:0 !important; border-radius:0 0 var(--radius-lg) var(--radius-lg); }
+@media (max-width:768px){ #calendly-inline .calendly-inline-widget{ min-height:780px; } }
 
 /* =========================
-   BREADCRUMBS (konsistent)
+   BREADCRUMBS
    ========================= */
 .breadcrumbs{
   margin-top:calc(var(--header-height) + .25rem);
@@ -508,21 +487,249 @@ input,select,textarea{ font:inherit; color:inherit; }
   gap:.25rem .5rem; font-size:.95rem; color:var(--text-light);
 }
 .breadcrumbs__item{ display:flex; align-items:center; gap:.5rem; }
-.breadcrumbs__item + .breadcrumbs__item::before{
-  content:"›"; opacity:.6;
-}
+.breadcrumbs__item + .breadcrumbs__item::before{ content:"›"; opacity:.6; }
 .breadcrumbs a{ color:var(--primary-color); }
 .breadcrumbs a:hover{ text-decoration:underline; text-underline-offset:2px; }
 .breadcrumbs [aria-current="page"]{ color:var(--text-color); font-weight:600; }
-@media (max-width:768px){
-  .breadcrumbs{ margin-top:calc(var(--header-height)); }
-}
+@media (max-width:768px){ .breadcrumbs{ margin-top:calc(var(--header-height)); } }
 
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce){
   html:focus-within{ scroll-behavior:auto; }
   *,*::before,*::after{ animation-duration:.001s !important; transition-duration:.001s !important; }
 }
+
+/* =========================
+   PAGE HERO (subsider)
+   ========================= */
+.page-hero{
+  background: var(--gradient-soft);
+  margin-top: var(--header-height);
+  padding: clamp(2.5rem, 4vw, 4rem) 0;
+  border-bottom: 1px solid var(--border);
+}
+.page-hero__container{ display:grid; grid-template-columns: 1.15fr 0.85fr; gap: 2.5rem; align-items:center; }
+.page-hero__title{ font-size: var(--h1-font-size); color: var(--primary-color); margin-bottom: .75rem; line-height: 1.15; }
+.page-hero__description{ font-size: 1.125rem; color: var(--text-light); max-width: 65ch; margin-bottom: 1.25rem; }
+.page-hero__actions{ display:flex; gap:.75rem; flex-wrap:wrap; margin-top:.25rem; }
+.page-hero__image{ position:relative; border-radius: var(--radius-lg); overflow:hidden; box-shadow: var(--shadow-lg); }
+.page-hero__img{ width:100%; height: clamp(260px, 44vh, 460px); object-fit: cover; display:block; }
+@media (max-width: 1024px){ .page-hero__container{ grid-template-columns: 1fr; gap: 2rem; } .page-hero__image{ order:-1; } }
+@media (max-width: 768px){ .page-hero{ padding: calc(var(--header-height) + 1rem) 0 2.25rem; } .page-hero__title{ line-height: 1.2; } .page-hero__img{ height: 320px; } }
+@media (max-width: 480px){ .page-hero__img{ height: 260px; } }
+
+/* =========================
+   Kontakt-side + FAQ
+   ========================= */
+.contact-page .grid--2{ grid-template-columns:minmax(0, 1.25fr) minmax(0, 0.95fr); gap:2rem; align-items:start; }
+.contact-page #calendly-root.card{ padding:0; overflow:hidden; }
+.contact-page #calendly-inline{ min-height:720px; }
+.contact-page .contact__container{ grid-template-columns:1fr; gap:1rem; margin:0; }
+.contact-page .contact__info{ gap:.75rem; }
+@media (max-width: 992px){ .contact-page .grid--2{ grid-template-columns:1fr; } }
+
+details.accordion{
+  background:#fff; border:1px solid var(--border); border-radius:var(--radius-lg);
+  box-shadow:var(--shadow-sm); margin-bottom:.75rem; overflow:hidden;
+}
+summary.accordion__summary{
+  list-style:none; cursor:pointer; padding:.9rem 1rem; font-weight:600;
+  color:var(--primary-color); display:flex; align-items:center; gap:.5rem;
+}
+summary.accordion__summary::-webkit-details-marker{ display:none; }
+details.accordion[open] summary.accordion__summary{ background:linear-gradient(0deg, #f9fbff, #fff); border-bottom:1px solid var(--border); }
+.accordion__content{ padding:.85rem 1rem 1rem; color:var(--text-color); }
+
+/* =========================
+   PRO POLISH – NYE ELEMENTER, HELHET
+   ========================= */
+
+/* Hvorfor-oss: ikonliste i to kolonner */
+#hvorfor-oss .service__features{ column-count:2; column-gap:2rem; margin-top:.25rem; }
+#hvorfor-oss .service__features li{ break-inside:avoid; padding:.15rem 0; }
+#hvorfor-oss .service__features i{ color:var(--secondary-color); }
+@media (max-width:640px){ #hvorfor-oss .service__features{ column-count:1; } }
+
+/* Digitalt vs. klinikk – wrapper og tabell */
+.table-wrap{
+  overflow:auto;
+  -webkit-overflow-scrolling:touch;
+  border:1px solid var(--border);
+  border-radius:var(--radius-lg);
+  box-shadow:var(--shadow-sm);
+  background:#fff;
+  /* subtile “scroll edges” */
+  mask-image: linear-gradient(to right, transparent 0, #000 16px, #000 calc(100% - 16px), transparent 100%);
+}
+.table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:1rem;
+}
+.table thead th{
+  background:#fff;
+  color:var(--primary-color);
+  font-weight:700;
+  position:sticky; top:0; z-index:1;
+  box-shadow:0 1px 0 var(--border);
+}
+.table th, .table td{
+  padding:1rem 1rem;
+  text-align:left;
+  border-bottom:1px solid color-mix(in srgb, var(--border) 90%, #0000);
+}
+.table tbody tr:nth-child(odd){ background:color-mix(in srgb, var(--light-gray) 35%, #fff); }
+.table tbody tr:hover{ background:color-mix(in srgb, var(--light-gray) 60%, #fff); }
+@media (max-width:520px){
+  .table th, .table td{ padding:.75rem .9rem; font-size:.95rem; }
+}
+
+/* Ekte «stacked» mobilvariant – bruk .table--stacked og sett data-th på hver <td> */
+@media (max-width:640px){
+  .table--stacked{ border-collapse:separate; border-spacing:0; }
+  .table--stacked thead{ position:absolute; width:1px; height:1px; margin:-1px; padding:0; overflow:hidden; clip:rect(0 0 0 0); border:0; }
+  .table--stacked tbody, .table--stacked tr, .table--stacked td{ display:block; width:100%; }
+  .table--stacked tr{
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:var(--radius-md);
+    box-shadow:var(--shadow-sm);
+    padding:.6rem .9rem;
+    margin:.75rem 0;
+  }
+  .table--stacked td{
+    border:none;
+    padding:.4rem 0;
+  }
+  .table--stacked td[data-th]::before{
+    content:attr(data-th);
+    display:block;
+    font-weight:600;
+    color:var(--primary-color);
+    margin-bottom:.15rem;
+  }
+}
+
+/* Forberedelser – callout */
+#forberedelser .service__card{
+  display:grid; gap:1rem; padding:1.25rem 1.25rem;
+  border-left:4px solid var(--secondary-color);
+  background:
+    radial-gradient(80% 80% at 0% 0%, rgba(27,139,180,.06), transparent 60%),
+    #fff;
+}
+#forberedelser .service__features{ display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:.5rem; }
+#forberedelser .btn{ box-shadow:var(--shadow-sm); }
+
+/* Priser – definisjonsliste i card */
+#priser-kort dl.service__card{
+  display:grid; grid-template-columns:minmax(220px,280px) 1fr; gap:.75rem 1rem;
+  border:1px solid var(--border); border-radius:var(--radius-lg);
+}
+#priser-kort dl.service__card dt{
+  display:flex; align-items:center; gap:.55rem;
+  padding:.75rem 1rem .25rem 1rem; border-left:3px solid var(--accent-color);
+  color:var(--primary-color); font-weight:var(--font-semi-bold);
+}
+#priser-kort dl.service__card dt i{ color:var(--secondary-color); }
+#priser-kort dl.service__card dd{
+  padding:.75rem 1rem .25rem 0; color:var(--text-light);
+  border-bottom:1px dashed color-mix(in srgb, var(--border) 80%, #0000);
+}
+#priser-kort dl.service__card dd:last-of-type{ border-bottom:0; }
+@media (max-width:640px){
+  #priser-kort dl.service__card{ grid-template-columns:1fr; }
+  #priser-kort dl.service__card dd{ padding:.25rem 1rem .75rem 1rem; }
+}
+
+/* Viktig å vite – varselrad */
+#viktig-a-vite .service__card{
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1rem;
+  background:#fff;
+}
+#viktig-a-vite .service__card p{ display:flex; gap:.5rem; align-items:flex-start; margin:0; color:var(--text-color); }
+#viktig-a-vite .service__card i{ color:var(--warning-color); flex:0 0 auto; margin-top:.1rem; }
+
+/* Sitatbanner */
+#sitater blockquote.service__card{
+  position:relative; border:1px solid var(--border); border-left:6px solid var(--secondary-color);
+  background:linear-gradient(135deg, #ffffff 0%, #f9fcff 100%); font-style:italic;
+}
+#sitater blockquote.service__card::before{
+  content:"“"; position:absolute; left:.6rem; top:.2rem; font-family:serif; font-size:3rem; line-height:1;
+  color:color-mix(in srgb, var(--secondary-color) 35%, #000); opacity:.25;
+}
+#sitater blockquote.service__card footer{ margin-top:.5rem; font-style:normal; color:var(--text-light); }
+
+/* FAQ <details> – harmonisert */
+#faq details.service__card{ padding:0; border:1px solid var(--border); border-radius:var(--radius-lg); box-shadow:var(--shadow-sm); overflow:hidden; }
+#faq details.service__card + details.service__card{ margin-top:.5rem; }
+#faq details.service__card > summary{
+  list-style:none; cursor:pointer; padding:1rem 1.1rem; font-weight:600; color:var(--primary-color);
+  display:flex; align-items:center; gap:.6rem;
+}
+#faq details.service__card > summary::-webkit-details-marker{ display:none; }
+#faq details.service__card > summary::after{
+  content:"+"; margin-left:auto; font-weight:800; color:var(--secondary-color);
+  transform:translateY(-1px); transition:transform .2s ease, opacity .2s ease;
+}
+#faq details.service__card[open] > summary{ background:linear-gradient(0deg, #f7fbff, #fff); border-bottom:1px solid var(--border); }
+#faq details.service__card[open] > summary::after{ content:"–"; transform:none; opacity:.9; }
+#faq details.service__card > *:not(summary){ padding:1rem 1.1rem 1.25rem; color:var(--text-light); }
+
+/* =========================
+   BOOKING-SIDE POLISH
+   ========================= */
+
+/* Tablist for tjenester (erstatter inline-styles) */
+.cta__container{
+  display:flex; gap:.5rem; flex-wrap:wrap; justify-content:center; margin-bottom:1rem;
+}
+@media (max-width:640px){
+  .cta__container{
+    overflow-x:auto; white-space:nowrap; -webkit-overflow-scrolling:touch;
+    scroll-snap-type:x mandatory; padding-bottom:.25rem;
+  }
+  .cta__container .btn{ scroll-snap-align:start; }
+}
+/* Aktiv tjeneste-knapp */
+[data-svc] i{ color:var(--secondary-color); }
+[data-svc].is-active{
+  background:var(--gradient-primary) !important; color:#fff !important; border-color:transparent !important;
+  box-shadow:var(--shadow-sm);
+}
+[data-svc].is-active i{ color:#fff; opacity:.95; }
+
+/* Hurtigknapper under tabs */
+#booking-quick{ display:flex; gap:.5rem; flex-wrap:wrap; justify-content:center; margin-bottom:1rem; }
+
+/* Calendly inline-widget kort */
+.widget--calendly,
+#calendly-inline{
+  min-height:740px; width:100%;
+  border:1px solid var(--border); border-radius:var(--radius-lg);
+  overflow:hidden; box-shadow:var(--shadow-sm); background:#fff;
+}
+/* Skeleton mens script initierer (når elementet er tomt) */
+#calendly-inline:empty{
+  background:
+    linear-gradient(90deg, #f6f8fb 25%, #eef3f9 37%, #f6f8fb 63%);
+  background-size:400% 100%;
+  animation:skeleton 1.2s infinite linear;
+}
+@keyframes skeleton{ 0%{background-position:100% 0} 100%{background-position:-100% 0} }
+
+/* =========================
+   UTILITIES (for nye seksjoner)
+   ========================= */
+.grid-basic{ display:grid; }
+.grid-autofit-260{ display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.grid-autofit-320{ display:grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+.align-start{ align-items:start; }
+.gap-05{ gap:.5rem; } .gap-075{ gap:.75rem; } .gap-1{ gap:1rem; } .gap-2{ gap:2rem; }
+.flex-row{ display:flex; } .wrap{ flex-wrap:wrap; } .justify-center{ justify-content:center; }
+.mt-1{ margin-top:1rem; }
+.buttons-row{ display:flex; gap:.5rem; flex-wrap:wrap; }
 
 /* =========================
    RESPONSIVE
@@ -545,145 +752,141 @@ input,select,textarea{ font:inherit; color:inherit; }
   .service__card, .testimonial__card{ padding:1.25rem; }
   .contact__form{ grid-template-columns:1fr; padding:1rem; }
 }
-/* =========================
-   PAGE HERO (subside-hero i samme stil)
-   ========================= */
-.page-hero{
-  background: var(--gradient-soft);
-  margin-top: var(--header-height);
-  padding: clamp(2.5rem, 4vw, 4rem) 0;
-  border-bottom: 1px solid var(--border);
+/* Aktiv chip også for aria-pressed (i tillegg til aria-selected) */
+.btn--chip[aria-pressed="true"]{
+  color:#fff; background:var(--gradient-primary); border-color:transparent;
 }
 
-.page-hero__container{
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr; /* litt større tekstkolonne */
-  gap: 2.5rem;
-  align-items: center;
+/* Skjult for synlige brukere, synlig for skjermleser (til aria-live) */
+.visually-hidden{
+  position:absolute !important; width:1px !important; height:1px !important;
+  padding:0 !important; margin:-1px !important; overflow:hidden !important;
+  clip:rect(0,0,0,0) !important; white-space:nowrap !important; border:0 !important;
 }
-
-.page-hero__title{
-  font-size: var(--h1-font-size);
-  color: var(--primary-color);
-  margin-bottom: .75rem;
-  line-height: 1.15;
-}
-
-.page-hero__description{
-  font-size: 1.125rem;
-  color: var(--text-light);
-  max-width: 65ch;
-  margin-bottom: 1.25rem;
-}
-
-.page-hero__actions{
-  display: flex;
-  gap: .75rem;
-  flex-wrap: wrap;
-  margin-top: .25rem;
-}
-
-/* Bildekort som i hoved-hero */
-.page-hero__image{
-  position: relative;
+/* --- Viktig å vite (polert) --- */
+.notice{
+  background: linear-gradient(180deg, #fff 0%, #fafcff 100%);
+  border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  overflow: hidden;
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-sm);
+  padding: 1.1rem 1.25rem;
+}
+.notice--emergency{
+  border-left: 4px solid var(--warning-color);
+  background:
+    radial-gradient(80% 80% at 0% 0%, color-mix(in srgb, var(--warning-color) 8%, #fff) 0%, transparent 60%),
+    #fff;
 }
 
-.page-hero__img{
-  width: 100%;
-  height: clamp(260px, 44vh, 460px);
-  object-fit: cover;
-  display: block;
-}
-
-/* Responsiv oppførsel – stack, og vis bilde først på smalere skjermer */
-@media (max-width: 1024px){
-  .page-hero__container{
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-  .page-hero__image{ order: -1; }
-}
-
-@media (max-width: 768px){
-  .page-hero{
-    /* samme “kompakt” topp-padding som hoved-heroen på mobil */
-    padding: calc(var(--header-height) + 1rem) 0 2.25rem;
-  }
-  .page-hero__title{
-    /* følger dine responsive root‑størrelser, men litt strammere linjeavstand */
-    line-height: 1.2;
-  }
-  .page-hero__img{
-    height: 320px;
-  }
-}
-
-/* Mikrojustering for veldig smale skjermer */
-@media (max-width: 480px){
-  .page-hero__img{ height: 260px; }
-}
-/* =========================
-   Kontakt-side layout tweaks + FAQ
-   ========================= */
-
-/* To-kolonne: Calendly (venstre) + kontakt (høyre) */
-.contact-page .grid--2{
-  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.95fr);
-  gap: 2rem;
-  align-items: start;
-}
-
-/* Høyde/innpakning Calendly-kort */
-.contact-page #calendly-root.card{
-  padding: 0;               /* la Calendly få full bredde i kortet */
-  overflow: hidden;         /* ingen uønsket scrollbars rundt iframe */
-}
-.contact-page #calendly-inline{
-  min-height: 720px;
-}
-
-/* Høyre kolonne: ikke to kolonner inni, bare stable kort + skjema pent */
-.contact-page .contact__container{
-  grid-template-columns: 1fr; /* overstyrer global 1fr 1.6fr */
+.notice-grid{
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0,1fr));
   gap: 1rem;
-  margin: 0;
+}
+@media (max-width: 992px){ .notice-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); } }
+@media (max-width: 560px){ .notice-grid{ grid-template-columns: 1fr; } }
+
+.notice-item{ display: flex; align-items: flex-start; gap: .75rem; }
+.notice-icon{
+  width: 2.5rem; height: 2.5rem; flex: 0 0 auto;
+  display: grid; place-items: center; border-radius: 50%;
+  background: color-mix(in srgb, var(--warning-color) 16%, #fff);
+  color: var(--warning-color);
+  box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--warning-color) 25%, #fff);
+}
+.notice-content{ display: grid; gap: .15rem; }
+.notice-title{
+  font-size: 1rem;
+  color: var(--primary-color);
+  font-weight: var(--font-semi-bold);
+  line-height: 1.25;
+}
+.notice p{ margin: 0; color: var(--text-color); }
+.notice .emphasis{ font-weight: 800; }
+/* --- Slik fungerer det: 2×2 grid med nummerbadge --- */
+.steps-grid{
+  list-style: none;
+  margin: 0; padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(280px, 1fr));
+  gap: 1rem;
+  counter-reset: step;
+}
+@media (max-width: 640px){
+  .steps-grid{ grid-template-columns: 1fr; }
 }
 
-/* Litt tettere kort på kontaktinfo i denne konteksten */
-.contact-page .contact__info{ gap: .75rem; }
-
-/* Responsiv: stack på nettbrett/mobil */
-@media (max-width: 992px){
-  .contact-page .grid--2{ grid-template-columns: 1fr; }
+/* Rebruker .service__card – legger til nummer og ikon */
+.step-card{
+  position: relative;
+  padding-top: 2.25rem; /* plass til badge/ikon */
+}
+.step-card::before{
+  counter-increment: step;
+  content: counter(step);
+  position: absolute; inset: 1rem auto auto 1rem;
+  width: 36px; height: 36px; border-radius: 50%;
+  display: grid; place-items: center;
+  color: #fff; font-weight: 800;
+  background: var(--secondary-color);
+  box-shadow: var(--shadow-sm);
 }
 
-/* FAQ (accordion) – dersom ikke allerede i CSS-en din */
-details.accordion{
+/* Liten aksent-ikon øverst til høyre */
+.step-card__icon{
+  position: absolute; inset: .85rem .85rem auto auto;
+  width: 2.25rem; height: 2.25rem; border-radius: .6rem;
+  display: grid; place-items: center;
+  background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+  color: #fff;
+  box-shadow: var(--shadow-sm);
+}
+.step-card .service__title{ margin-top: .25rem; }
+/* --- A11y helper (brukt for live-status mv.) --- */
+.visually-hidden{
+  position:absolute !important; width:1px; height:1px; padding:0; margin:-1px;
+  overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0;
+}
+
+/* --- Chips: støtt både aria-selected og aria-pressed --- */
+.btn--chip[aria-pressed="true"],
+.btn--chip[aria-selected="true"]{
+  color:#fff; background:var(--gradient-primary); border-color:transparent;
+  box-shadow:var(--shadow-sm);
+}
+.btn--chip[aria-pressed="true"] i,
+.btn--chip[aria-selected="true"] i{ color:#fff; opacity:.95; }
+
+/* --- Disabled/aria-disabled knapper --- */
+.btn[disabled],
+.btn[aria-disabled="true"]{
+  opacity:.55; cursor:not-allowed; box-shadow:none; transform:none;
+}
+
+/* --- FAQ (generisk) --- */
+details.faq__item{
   background:#fff; border:1px solid var(--border); border-radius:var(--radius-lg);
-  box-shadow:var(--shadow-sm); margin-bottom:.75rem; overflow:hidden;
+  box-shadow:var(--shadow-sm); margin-bottom:.6rem; overflow:hidden;
 }
-summary.accordion__summary{
-  list-style:none; cursor:pointer; padding:.9rem 1rem; font-weight:600;
-  color:var(--primary-color); display:flex; align-items:center; gap:.5rem;
+summary.faq__q{
+  list-style:none; cursor:pointer; padding:1rem 1.1rem; font-weight:600;
+  color:var(--primary-color); display:flex; align-items:center; gap:.6rem;
 }
-summary.accordion__summary::-webkit-details-marker{ display:none; }
-details.accordion[open] summary.accordion__summary{
-  background:linear-gradient(0deg, #f9fbff, #fff);
-  border-bottom:1px solid var(--border);
+summary.faq__q::-webkit-details-marker{ display:none; }
+details.faq__item[open] > summary.faq__q{
+  background:linear-gradient(0deg, #f7fbff, #fff); border-bottom:1px solid var(--border);
 }
-.accordion__content{ padding:.85rem 1rem 1rem; color:var(--text-color); }
+.faq__a{ padding:.9rem 1.1rem 1.25rem; color:var(--text-light); }
 
-/* Fjern evt. blur på mobil-backdrop hvis det fortsatt ligger i CSS */
-.nav__backdrop{ backdrop-filter:none !important; }
-/* Fjern innebygde ol-markører i "Slik fungerer det" */
-.steps{
-  list-style: none;       /* skjul 1., 2., 3. */
-  padding-left: 0;        /* fjern innrykk */
-  margin-left: 0;
-  counter-reset: step;    /* beholder vår egen teller */
+/* --- Callout (slik at vi slipper inline-styles) --- */
+.callout{
+  border:1px solid var(--border); border-radius:var(--radius-lg); background:#fff; padding:1rem;
 }
-.steps > li{ list-style: none; }
-.steps > li::marker{ content: ""; } /* ekstra robusthet */
+
+/* --- Nyhetsbrev-skjema små tweaks --- */
+#newsletter-form .form__group{ min-width:220px; }
+@media (max-width:640px){ #newsletter-form{ grid-template-columns:1fr; } }
+
+/* Valgfritt: myk promo-kort-stil om du vil bytte ut inline-style */
+.card--soft{ background:var(--gradient-soft); }
+.card--flush{ padding:0; overflow:hidden; }

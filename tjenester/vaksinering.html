@@ -1,19 +1,22 @@
 <!DOCTYPE html>
-<html lang="no">
+<html lang="nb">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Vaksinering – Doktor Kliniken Norge</title>
-  <meta name="description" content="Grunnvaksiner, reisevaksiner og sesongvaksiner. Rådgivning om doseskjema og dokumentasjon. Bestill vaksinering digitalt eller på klinikk." />
+  <meta name="description" content="Grunnvaksiner, reisevaksiner og sesongvaksiner. Rådgivning om doseskjema og dokumentasjon. Bestill vaksinering på klinikk eller for bedrift (vaksinebuss)." />
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#0F4C81" />
   <link rel="canonical" href="https://dittdomene.no/tjenester/vaksinering.html" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Vaksinering – Doktor Kliniken" />
-  <meta property="og:description" content="Grunnvaksiner, reisevaksiner og sesongvaksiner. Rådgivning og dokumentasjon. Bestill time." />
+  <meta property="og:title" content="Vaksinering – Doktor Kliniken Norge" />
+  <meta property="og:description" content="Grunnvaksiner, reisevaksiner og sesongvaksiner. Bestill på klinikk eller vaksinebuss." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://dittdomene.no/tjenester/vaksinering.html" />
   <meta property="og:image" content="https://dittdomene.no/assets/img/og-cover.jpg" />
   <meta property="og:locale" content="nb_NO" />
+  <meta property="og:site_name" content="Doktor Kliniken" />
 
   <!-- Icons / PWA -->
   <link rel="icon" href="/favicon.ico" />
@@ -27,6 +30,9 @@
 
   <!-- CSS -->
   <link rel="stylesheet" href="../assets/css/style.css" />
+
+  <!-- Perf: Preload hero image -->
+  <link rel="preload" as="image" href="../assets/img/hero/hero-health.jpg" imagesizes="(max-width: 1024px) 100vw, 960px" />
 </head>
 <body>
   <!-- Skip -->
@@ -39,7 +45,7 @@
         <img class="nav__logo-img" src="../assets/img/logo.png" alt="Doktor Kliniken" width="160" height="36" loading="eager" decoding="async" />
       </a>
 
-      <div class="nav__menu" id="nav-menu" role="dialog" aria-modal="true" aria-label="Navigasjon">
+      <div class="nav__menu" id="nav-menu" role="dialog" aria-modal="true" aria-label="Navigasjon" aria-hidden="true">
         <ul class="nav__list">
           <li class="nav__item"><a href="../index.html#hjem" class="nav__link">Hjem</a></li>
           <li class="nav__item"><a href="./index.html" class="nav__link">Tjenester</a></li>
@@ -53,37 +59,60 @@
 
       <div class="nav__actions">
         <a href="#bestill" class="btn btn--primary">Bestill time</a>
-        <button class="nav__toggle" id="nav-toggle" aria-label="Åpne meny"><i class="fas fa-bars" aria-hidden="true"></i></button>
+        <button class="nav__toggle" id="nav-toggle" aria-label="Åpne meny" aria-expanded="false" aria-controls="nav-menu"><i class="fas fa-bars" aria-hidden="true"></i></button>
       </div>
     </nav>
   </header>
-<nav id="breadcrumbs" class="breadcrumbs" aria-label="Brødsmulesti" hidden>
-  <div class="container"><!-- fylles av JS --></div>
-</nav>
+
+  <!-- Brødsmulesti (auto fylles av script.js) -->
+  <nav id="breadcrumbs" class="breadcrumbs" aria-label="Brødsmulesti" hidden>
+    <div class="container"></div>
+  </nav>
 
   <!-- Main -->
   <main id="main" class="main">
     <!-- Hero -->
     <section class="page-hero section" aria-labelledby="pg-title">
       <div class="page-hero__container container">
-        <div class="page-hero__content">
-         
+        <div class="page-hero__content animate-fade-up">
           <h1 id="pg-title" class="page-hero__title">Vaksinering</h1>
           <p class="page-hero__description">
-            Grunnvaksiner, reisevaksiner og sesongvaksiner (f.eks. influensa). Du får rådgivning om doseskjema og dokumentasjon. Bestill digital vurdering eller time på klinikk.
+            Grunnvaksiner, reisevaksiner og sesongvaksiner (f.eks. influensa). Du får rådgivning om doseskjema og dokumentasjon. Bestill time på klinikk eller for bedrift/arrangement (vaksinebuss).
           </p>
           <div class="page-hero__actions">
             <a class="btn btn--primary" href="#bestill"><i class="fas fa-syringe" aria-hidden="true"></i> Bestill vaksinering</a>
-            <a class="btn btn--secondary" href="../kontakt/index.html"><i class="fas fa-phone" aria-hidden="true"></i> Kontakt oss</a>
+            <a class="btn btn--secondary" href="#vaksinebuss"><i class="fas fa-bus" aria-hidden="true"></i> Vaksinebuss for bedrift</a>
           </div>
+          <p class="section__description" role="note"><strong>Akutt?</strong> Ved livstruende tilstander ring <strong>113</strong>. Vi er ikke en akuttmottakstjeneste.</p>
         </div>
-        <div class="page-hero__image">
-          <img src="../assets/img/hero/hero-health.jpg" alt="Vaksinering på klinikk" class="page-hero__img" loading="eager" decoding="async">
+        <div class="page-hero__image animate-fade-up">
+          <picture>
+            <source srcset="../assets/img/hero/hero-health.webp" type="image/webp">
+            <img src="../assets/img/hero/hero-health.jpg" alt="Sykepleier setter vaksine på klinikk" class="page-hero__img" width="960" height="640" loading="eager" fetchpriority="high" decoding="async">
+          </picture>
         </div>
       </div>
     </section>
 
-    <!-- Innhold -->
+    <!-- Aktuelt / kampanje (inspirert av SE) -->
+    <section class="section" id="aktuelt" aria-labelledby="aktuelt-title" style="padding-top:2rem">
+      <div class="container">
+        <div class="card" style="display:grid;gap:.75rem;background:var(--gradient-soft)">
+          <div class="buttons-row wrap">
+            <span class="hero__badge" aria-hidden="true"><i class="fas fa-bug"></i><span>TBE‑sesong</span></span>
+          </div>
+          <div class="grid-autofit-320 gap-1 align-start">
+            <p class="card__text"><strong>Flåttsesongen er i gang.</strong> Beskytt deg og familien mot TBE – ta første dose i dag, og få påminnelse om neste dose.</p>
+            <div class="buttons-row">
+              <a class="btn btn--primary" href="#bestill"><i class="fas fa-syringe"></i> Bestill TBE‑vaksine</a>
+              <a class="btn btn--secondary" href="#nyhetsbrev"><i class="fas fa-bell"></i> Få påminnelse</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hva vi tilbyr -->
     <section class="section" aria-labelledby="svc-title">
       <div class="container">
         <div class="section__header">
@@ -94,75 +123,279 @@
 
         <div class="services__container" style="margin-top:0">
           <article class="service__card">
-            <div class="service__icon"><i class="fas fa-syringe" aria-hidden="true"></i></div>
+            <div class="service__icon" aria-hidden="true"><i class="fas fa-syringe"></i></div>
             <h3 class="service__title">Grunnvaksiner</h3>
             <p class="service__description">Oppfriskning av barnevaksinasjonsprogrammet (f.eks. stivkrampe/difteri/kikhoste) og anbefalte boostere for voksne.</p>
             <ul class="service__features">
-              <li><i class="fas fa-check"></i> Sjekk av vaksinasjonsstatus</li>
-              <li><i class="fas fa-check"></i> Plan for oppfriskning</li>
-              <li><i class="fas fa-check"></i> Dokumentasjon</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Sjekk av vaksinasjonsstatus</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Plan for oppfriskning</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Dokumentasjon</li>
             </ul>
           </article>
 
           <article class="service__card service__card--featured">
             <div class="service__badge">Populær</div>
-            <div class="service__icon"><i class="fas fa-passport" aria-hidden="true"></i></div>
+            <div class="service__icon" aria-hidden="true"><i class="fas fa-passport"></i></div>
             <h3 class="service__title">Reisevaksiner</h3>
             <p class="service__description">Tilpasset råd for destinasjon og varighet. Vi kartlegger behov tidlig og setter vaksiner i god tid før avreise.</p>
             <ul class="service__features">
-              <li><i class="fas fa-check"></i> Rådgivning etter reiseråd</li>
-              <li><i class="fas fa-check"></i> Doseskjema & påminnelser</li>
-              <li><i class="fas fa-check"></i> Dokumentasjon for visum/arbeid</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Rådgivning etter gjeldende reiseråd</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Doseskjema & påminnelser</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Dokumentasjon for visum/arbeid</li>
             </ul>
           </article>
 
           <article class="service__card">
-            <div class="service__icon"><i class="fas fa-shield-heart" aria-hidden="true"></i></div>
+            <div class="service__icon" aria-hidden="true"><i class="fas fa-shield-heart"></i></div>
             <h3 class="service__title">Sesongvaksiner</h3>
             <p class="service__description">Sesongbaserte anbefalinger (f.eks. influensa) for risikogrupper og øvrige voksne.</p>
             <ul class="service__features">
-              <li><i class="fas fa-check"></i> Kort ventetid i sesong</li>
-              <li><i class="fas fa-check"></i> Råd om bivirkninger</li>
-              <li><i class="fas fa-check"></i> Behovsvurdering</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Kort ventetid i sesong</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Råd om bivirkninger</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Behovsvurdering</li>
             </ul>
           </article>
-        </div>
-
-        <div class="service__card" style="margin-top:1.5rem">
-          <h3 class="service__title">Før timen</h3>
-          <ul class="service__features">
-            <li><i class="fas fa-info-circle"></i> Ta med gyldig legitimasjon og eventuelt vaksinasjonskort.</li>
-            <li><i class="fas fa-info-circle"></i> Gi beskjed om graviditet, allergier eller immundempende behandling.</li>
-            <li><i class="fas fa-info-circle"></i> Ved akutt feber/infeksjon bør vaksinering utsettes – ta kontakt.</li>
-          </ul>
         </div>
       </div>
     </section>
 
+    <!-- Eksempler på reisevaksiner – kort + chips -->
+    <section id="reise-eks" class="section" aria-labelledby="reise-eks-title" style="padding-top:1rem">
+      <div class="container">
+        <div class="section__header">
+          <span class="section__subtitle">Eksempler</span>
+          <h2 id="reise-eks-title" class="section__title">Reisevaksiner – typiske kombinasjoner</h2>
+          <p class="section__description">Endelig anbefaling avhenger av reisemål, varighet og helse. Vi lager din plan i rådgivningstimen.</p>
+        </div>
+
+        <div class="cards cards--3">
+          <article class="card">
+            <h3 class="card__title"><i class="fas fa-utensils"></i> Mat & vann</h3>
+            <p class="card__text">Aktuelt i store deler av Asia, Afrika og Latin-Amerika – særlig ved lokal mat/vann.</p>
+            <div class="buttons-row wrap">
+              <span class="btn btn--chip" aria-disabled="true">Hepatitt A</span>
+              <span class="btn btn--chip" aria-disabled="true">Tyfoid</span>
+              <span class="btn btn--chip" aria-disabled="true">Kolera (drikkevaksine)</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3 class="card__title"><i class="fas fa-mosquito"></i> Myggbårne</h3>
+            <p class="card__text">Ved opphold i tropiske/subtropiske områder, særlig utenfor storbyer.</p>
+            <div class="buttons-row wrap">
+              <span class="btn btn--chip" aria-disabled="true">Gul feber</span>
+              <span class="btn btn--chip" aria-disabled="true">Japansk encefalitt</span>
+              <span class="btn btn--chip" aria-disabled="true">Dengue (12+ år)</span>
+              <span class="btn btn--chip" aria-disabled="true">Malaria (profylakse)</span>
+              <span class="btn btn--chip" aria-disabled="true">TBE (flått)</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3 class="card__title"><i class="fas fa-hand-holding-medical"></i> Kontakt & sår</h3>
+            <p class="card__text">Ved risikosport, dyrekontakt eller helse-/feltarbeid.</p>
+            <div class="buttons-row wrap">
+              <span class="btn btn--chip" aria-disabled="true">Rabies</span>
+              <span class="btn btn--chip" aria-disabled="true">Stivkrampe/difteri/kikhoste (Tdap)</span>
+              <span class="btn btn--chip" aria-disabled="true">Hepatitt B</span>
+              <span class="btn btn--chip" aria-disabled="true">Meningokokk</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="callout" style="margin-top:1rem">
+          <p class="card__text"><strong>Merk:</strong> Dette er eksempler. Riktig oppsett avgjøres etter individuell vurdering.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Før timen – to kort + varsel -->
+    <section id="for-timen" class="section" aria-labelledby="for-title" style="padding-top:1rem">
+      <div class="container">
+        <div class="section__header">
+          <span class="section__subtitle">Forberedelse</span>
+          <h2 id="for-title" class="section__title">Før timen</h2>
+          <p class="section__description">En kjapp sjekkliste – så går besøket enda smidigere.</p>
+        </div>
+
+        <div class="grid-autofit-320 gap-1 align-start">
+          <article class="card">
+            <h3 class="card__title"><i class="fas fa-briefcase-medical"></i> Ta med</h3>
+            <ul class="list list--check">
+              <li>Gyldig legitimasjon</li>
+              <li>Vaksinasjonskort (hvis du har)</li>
+              <li>Liste over faste medisiner</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3 class="card__title"><i class="fas fa-notes-medical"></i> Oppgi til behandler</h3>
+            <ul class="list list--check">
+              <li>Graviditet eller planlagt graviditet</li>
+              <li>Allergier (f.eks. egg eller antibiotika)</li>
+              <li>Immundempende behandling / kronisk sykdom</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="callout" style="margin-top:1rem; padding:1rem; border:1px solid var(--border); border-radius:var(--radius-lg); background:#fff;">
+          <p class="card__text">
+            <i class="fas fa-triangle-exclamation" aria-hidden="true"></i>
+            Ved <strong>feber eller akutt infeksjon</strong> bør vaksinering utsettes – ta kontakt for ny tid.
+            Akutt livstruende? Ring <strong>113</strong>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Drop‑in & vaksinetelt (inspirert av SE) -->
+    <section id="dropin" class="section" aria-labelledby="dropin-title" style="background:var(--light-gray)">
+      <div class="container">
+        <div class="section__header">
+          <span class="section__subtitle">Nært deg</span>
+          <h2 id="dropin-title" class="section__title">Drop‑in: vaksinebuss & vaksinetelt</h2>
+          <p class="section__description">Kom innom uten time. Husk legitimasjon. Etter vaksine: kort observasjon.</p>
+        </div>
+        <div class="table-wrap">
+          <table class="table table--stacked">
+            <thead><tr><th>Dato</th><th>Sted</th><th>Tid</th><th>Vaksiner</th></tr></thead>
+            <tbody>
+              <tr>
+                <td data-th="Dato">—</td>
+                <td data-th="Sted">Oppdateres fortløpende</td>
+                <td data-th="Tid">—</td>
+                <td data-th="Vaksiner">Influensa, TBE m.fl.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="buttons-row mt-1">
+          <a class="btn btn--primary" href="#nyhetsbrev"><i class="fas fa-envelope-open-text"></i> Få e‑post når vi er i nærheten</a>
+          <a class="btn btn--secondary" href="#vaksinebuss"><i class="fas fa-bus"></i> Bestill bedriftbesøk</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vaksinebuss (bedrift/arrangement) -->
+    <section id="vaksinebuss" class="section" aria-labelledby="bus-title" style="background:var(--light-gray)">
+      <div class="container">
+        <div class="section__header">
+          <span class="section__subtitle">For bedrifter & arrangementer</span>
+          <h2 id="bus-title" class="section__title">Vaksinebuss – vi kommer til dere</h2>
+          <p class="section__description">Effektiv vaksinering på arbeidsplassen eller eventet. God dekning uten logistikkstyr.</p>
+        </div>
+
+        <div class="grid-autofit-320 gap-1 align-start">
+          <article class="service__card">
+            <h3 class="service__title"><i class="fas fa-building" aria-hidden="true"></i> Hva er inkludert?</h3>
+            <ul class="service__features">
+              <li><i class="fas fa-check" aria-hidden="true"></i> On‑site team med autorisert helsepersonell</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Forhåndsregistrering og informasjonsmateriell</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Dokumentasjon til ansatte</li>
+            </ul>
+          </article>
+          <article class="service__card">
+            <h3 class="service__title"><i class="fas fa-briefcase-medical" aria-hidden="true"></i> Hva kan settes?</h3>
+            <p class="service__description">Typisk sesongvaksiner (f.eks. influensa) og utvalgte reisevaksiner. Utvalg avklares på forhånd.</p>
+            <ul class="service__features">
+              <li><i class="fas fa-check" aria-hidden="true"></i> Rådgivning for riktig utvalg</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Mulig kombinasjon med helsesjekk</li>
+            </ul>
+          </article>
+          <article class="service__card">
+            <h3 class="service__title"><i class="fas fa-calendar-check" aria-hidden="true"></i> Praktisk</h3>
+            <ul class="service__features">
+              <li><i class="fas fa-check" aria-hidden="true"></i> Avtales fleksibelt etter behov</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Egne priser/volumavtaler for bedrift</li>
+            </ul>
+            <div class="buttons-row mt-1">
+              <a class="btn btn--primary" href="#bestill" data-cal-service="vaksinebuss"><i class="fas fa-bus" aria-hidden="true"></i> Be om tilbud</a>
+              <a class="btn btn--secondary" href="../priser/index.html"><i class="fas fa-tags" aria-hidden="true"></i> Se priser</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Nyhetsbrev / Påminnelse (inspirert av SE) -->
+    <section id="nyhetsbrev" class="section" aria-labelledby="news-title">
+      <div class="container">
+        <div class="section__header">
+          <span class="section__subtitle">Påminnelser</span>
+          <h2 id="news-title" class="section__title">Få varsel når vaksinebussen er nær deg</h2>
+          <p class="section__description">Vi sender tidspunkt og sted når vi planlegger drop‑in i ditt område. Du kan melde deg av når som helst.</p>
+        </div>
+        <form class="contact__form" id="newsletter-form" onsubmit="event.preventDefault(); alert('Takk! Vi varsler deg når vi er i nærheten. (Koble til nyhetsbrev‑system senere)'); this.reset();">
+          <div class="form__group">
+            <label class="form__label" for="news-email">E‑post</label>
+            <input class="form__input" type="email" id="news-email" name="email" placeholder="din@epost.no" required>
+          </div>
+          <div class="form__group">
+            <label class="form__label" for="news-postnr">Postnummer (valgfritt)</label>
+            <input class="form__input" type="text" id="news-postnr" name="postnr" inputmode="numeric" pattern="[0-9]{4}" placeholder="1234">
+          </div>
+          <div class="form__group form__group--full">
+            <button class="btn btn--primary" type="submit"><i class="fas fa-bell"></i> Registrer meg</button>
+            <p class="card__text" style="margin-top:.5rem">Vi bruker e‑posten kun til varsling om nærmeste vaksinebuss.</p>
+          </div>
+        </form>
+      </div>
+    </section>
+
     <!-- Booking (INLINE) -->
-    <section id="bestill" class="section" aria-labelledby="book-title" style="background:var(--light-gray)">
+    <section id="bestill" class="section" aria-labelledby="book-title">
       <div class="container">
         <div class="section__header">
           <span class="section__subtitle">Bestill</span>
           <h2 id="book-title" class="section__title">Bestill vaksinering</h2>
-          <p class="section__description">Velg tidspunkt som passer. Du kan også bestille rådgivning om reisevaksiner.</p>
+          <p class="section__description">Velg tjeneste for riktig kalender. Bestilling skjer direkte på siden.</p>
         </div>
 
-        <!-- Calendly inline embed -->
-        <div class="service__card" style="padding:0">
-          <!-- Bytt ut data-url med deres faktiske Calendly-URL for vaksinering -->
-          <div
-            class="calendly-inline-widget"
-            data-url="https://calendly.com/doktorkliniken/vaksinering?hide_event_type_details=1&hide_gdpr_banner=1&background_color=ffffff&text_color=0F172A&primary_color=1B8BB4"
-            style="min-width:320px;height:900px"
-          ></div>
+        <!-- Velger -->
+        <div class="segmented" role="group" aria-label="Velg tjeneste for vaksinering" style="display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1rem">
+          <button class="btn btn--chip" aria-pressed="true"  data-cal-service="klinikk">På klinikk</button>
+          <button class="btn btn--chip" aria-pressed="false" data-cal-service="reise">Reisevaksiner (rådgivning)</button>
+          <button class="btn btn--chip" aria-pressed="false" data-cal-service="vaksinebuss">Vaksinebuss (bedrift)</button>
+        </div>
+        <p id="cal-status" class="visually-hidden" aria-live="polite"></p>
+
+        <!-- Calendly inline via global loader (script.js) -->
+        <div class="card" style="padding:0">
+          <div id="calendly-inline"
+               data-calendly="inline"
+               data-calendly-url="https://calendly.com/doktorkliniken/vaksinering?hide_gdpr_banner=1&hide_event_type_details=1&background_color=ffffff&text_color=0a142f&primary_color=0a516d"
+               class="calendly-inline-widget"
+               style="min-width:320px;min-height:780px;width:100%"></div>
         </div>
 
         <noscript>
-          <p>
-            JavaScript er deaktivert. <a class="btn btn--primary" href="https://calendly.com/doktorkliniken/vaksinering" rel="noopener" target="_blank">Åpne booking i ny fane</a>
-          </p>
+          <div class="card">
+            JavaScript er deaktivert. Du kan bestille via disse lenkene:
+            <ul>
+              <li><a href="https://calendly.com/doktorkliniken/vaksinering" rel="noopener">På klinikk</a></li>
+              <li><a href="https://calendly.com/doktorkliniken/vaksinering" rel="noopener">Reisevaksiner (rådgivning)</a></li>
+              <li><a href="https://calendly.com/doktorkliniken/bedrift" rel="noopener">Vaksinebuss (bedrift)</a></li>
+            </ul>
+          </div>
         </noscript>
+      </div>
+    </section>
+
+    <!-- Vaksinasjonshistorikk (inspirert av SE) -->
+    <section id="historikk" class="section" aria-labelledby="hist-title" style="background:var(--light-gray)">
+      <div class="container">
+        <div class="section__header">
+          <span class="section__subtitle">Pasient</span>
+          <h2 id="hist-title" class="section__title">Se vaksinasjonshistorikk</h2>
+          <p class="section__description">Logg inn med BankID (kommer snart). Inntil videre kan du be om utskrift ved besøk.</p>
+        </div>
+        <div class="card">
+          <div class="buttons-row">
+            <button class="btn btn--primary" disabled aria-disabled="true"><i class="fas fa-id-card"></i> Logg inn med BankID</button>
+            <button class="btn btn--secondary" disabled aria-disabled="true"><i class="fas fa-mobile-screen"></i> ID‑porten</button>
+          </div>
+          <p class="card__text" style="margin-top:.75rem">Tilgjengeliggjøres når pasientportalen er på plass. Vi lagrer vaksinasjonsdata forsvarlig og utleverer kun ved sikker identifisering.</p>
+        </div>
       </div>
     </section>
 
@@ -177,28 +410,34 @@
 
         <div class="service__card">
           <details class="faq__item">
-            <summary class="faq__q"><i class="fas fa-question-circle"></i> Hvor lang tid tar timen?</summary>
+            <summary class="faq__q"><i class="fas fa-circle-question"></i> Hvor lang tid tar timen?</summary>
             <div class="faq__a"><p>Selve vaksineringen går raskt. Beregn totalt 15–20 minutter inkludert vurdering og etterobservasjon.</p></div>
           </details>
 
           <details class="faq__item">
-            <summary class="faq__q"><i class="fas fa-question-circle"></i> Hvilke bivirkninger er vanlige?</summary>
+            <summary class="faq__q"><i class="fas fa-circle-question"></i> Hvilke bivirkninger er vanlige?</summary>
             <div class="faq__a"><p>Lettere ømhet i armen, tretthet og lett feber kan forekomme kortvarig. Kontakt oss ved kraftige reaksjoner.</p></div>
           </details>
 
           <details class="faq__item">
-            <summary class="faq__q"><i class="fas fa-question-circle"></i> Trenger jeg resept?</summary>
+            <summary class="faq__q"><i class="fas fa-circle-question"></i> Trenger jeg resept?</summary>
             <div class="faq__a"><p>Nei, vaksinen settes på klinikk. Ved behov for forhåndsvurdering bestiller du rådgivningstime.</p></div>
           </details>
 
           <details class="faq__item">
-            <summary class="faq__q"><i class="fas fa-question-circle"></i> Hva med dokumentasjon til arbeid/utdanning?</summary>
-            <div class="faq__a"><p>Du får bekreftelse på satt vaksine og doser. Ta med tidligere vaksinasjonskort om du har.</p></div>
+            <summary class="faq__q"><i class="fas fa-circle-question"></i> Kan dere sette gulfeber?</summary>
+            <div class="faq__a"><p>Gulfeber kan kreve sertifisert vaksinasjonssenter for internasjonalt sertifikat. Vi gir råd og henviser ved behov.</p></div>
           </details>
 
+          <details class="faq__item">
+            <summary class="faq__q"><i class="fas fa-circle-question"></i> Får jeg dokumentasjon på satt vaksine?</summary>
+            <div class="faq__a"><p>Ja, du får dokumentasjon som beskriver vaksinetype og dose. Ta med tidligere vaksinasjonskort om du har.</p></div>
+          </details>
+<!--
           <div class="callout" style="margin-top:1rem; padding:1rem; border:1px solid var(--border); border-radius:var(--radius-lg); background:#fff;">
             <p><strong>Priser:</strong> Se <a href="../priser/index.html" class="footer__link">oppdatert prisliste</a>. Vaksinepris kan variere etter type og leverandør.</p>
           </div>
+          -->
         </div>
       </div>
     </section>
@@ -213,9 +452,9 @@
             <div class="footer__logo"><i class="fas fa-user-doctor" aria-hidden="true"></i><span>Doktor Kliniken</span></div>
             <p class="footer__description">Privat helsehjelp – digitalt eller på klinikk. Autorisert helsepersonell og trygg journalføring.</p>
             <div class="footer__social">
-              <a href="#" class="footer__social-link" aria-label="Facebook" target="_blank" rel="noopener nofollow"><i class="fab fa-facebook-f"></i></a>
-              <a href="#" class="footer__social-link" aria-label="Instagram" target="_blank" rel="noopener nofollow"><i class="fab fa-instagram"></i></a>
-              <a href="#" class="footer__social-link" aria-label="LinkedIn" target="_blank" rel="noopener nofollow"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#" class="footer__social-link" aria-label="Facebook" target="_blank" rel="noopener nofollow"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+              <a href="#" class="footer__social-link" aria-label="Instagram" target="_blank" rel="noopener nofollow"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+              <a href="#" class="footer__social-link" aria-label="LinkedIn" target="_blank" rel="noopener nofollow"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
             </div>
           </section>
 
@@ -244,9 +483,9 @@
           <section class="footer__section">
             <h3 class="footer__title">Kontakt</h3>
             <ul class="footer__list">
-              <li class="footer__contact"><i class="fas fa-phone"></i> <a class="footer__link" href="tel:+46105558816">+46 10 555 88 16</a></li>
-              <li class="footer__contact"><i class="fas fa-envelope"></i> <a class="footer__link" href="mailto:kontakt@doktorkliniken.se">kontakt@doktorkliniken.se</a></li>
-              <li class="footer__contact"><i class="fas fa-file-shield"></i> <a class="footer__link" href="../juridisk/personvern.html">Personvern</a></li>
+              <li class="footer__contact"><i class="fas fa-phone" aria-hidden="true"></i> <a class="footer__link" href="tel:+46105558816">+46 10 555 88 16</a></li>
+              <li class="footer__contact"><i class="fas fa-envelope" aria-hidden="true"></i> <a class="footer__link" href="mailto:kontakt@doktorkliniken.se">kontakt@doktorkliniken.se</a></li>
+              <li class="footer__contact"><i class="fas fa-file-shield" aria-hidden="true"></i> <a class="footer__link" href="../juridisk/personvern.html">Personvern</a></li>
             </ul>
           </section>
         </div>
@@ -274,9 +513,6 @@
   <script src="https://unpkg.com/scrollreveal" defer></script>
   <script src="../assets/js/script.js" defer></script>
 
-  <!-- Calendly embed (må ligge etter inline-widgeten) -->
-  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
-
   <script>
     // år i footer
     document.addEventListener('DOMContentLoaded',()=>{
@@ -284,19 +520,82 @@
     });
   </script>
 
-  <!-- Schema.org (valgfritt, minimal) -->
+  <!-- Booking toggler (bruker globale Calendly-loader i script.js) -->
+  <script>
+    (function(){
+      const CAL_THEME = "&hide_gdpr_banner=1&hide_event_type_details=1&background_color=ffffff&text_color=0a142f&primary_color=0a516d";
+      const MAP = {
+        klinikk:    "https://calendly.com/doktorkliniken/vaksinering",      // standard vaksinering på klinikk
+        reise:      "https://calendly.com/doktorkliniken/vaksinering",      // bytt til egen event-type hvis dere skiller rådgivning
+        vaksinebuss:"https://calendly.com/doktorkliniken/bedrift"            // bedrift/onsite
+      };
+      const inline = document.getElementById('calendly-inline');
+      const statusEl = document.getElementById('cal-status');
+
+      function setActive(key){
+        document.querySelectorAll('[data-cal-service]').forEach(btn=>{
+          btn.setAttribute('aria-pressed', btn.getAttribute('data-cal-service')===key ? 'true' : 'false');
+        });
+      }
+      function init(url){
+        if (!inline) return;
+        inline.innerHTML = "";
+        inline.setAttribute('data-calendly-url', url + CAL_THEME);
+        const run=()=>{
+          if (window.Calendly && window.Calendly.initInlineWidget){
+            Calendly.initInlineWidget({ url: url + CAL_THEME, parentElement: inline });
+            if (statusEl) statusEl.textContent = 'Kalender lastet: ' + (new URL(url).pathname.split('/').pop());
+          } else setTimeout(run, 60);
+        }; run();
+      }
+      function pickFromQuery(){
+        const s=(new URLSearchParams(location.search).get('service')||'').toLowerCase();
+        return MAP[s] ? s : 'klinikk';
+      }
+      function ready(cb){
+        if(/complete|interactive/.test(document.readyState)) cb(); else document.addEventListener('DOMContentLoaded', cb);
+      }
+      ready(()=>{
+        const first = pickFromQuery();
+        setActive(first);
+        init(MAP[first]);
+        document.addEventListener('click',e=>{
+          const btn=e.target.closest('[data-cal-service]');
+          if(!btn) return;
+          e.preventDefault();
+          const key=btn.getAttribute('data-cal-service');
+          if(!MAP[key]) return;
+          setActive(key);
+          init(MAP[key]);
+          document.getElementById('bestill')?.scrollIntoView({behavior:'smooth'});
+        });
+      });
+    })();
+  </script>
+
+  <!-- Schema.org (strukturert data) -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
-    "@type":"MedicalProcedure",
+    "@type":"Service",
     "name":"Vaksinering",
-    "description":"Grunnvaksiner, reisevaksiner og sesongvaksiner. Rådgivning om doseskjema og dokumentasjon.",
+    "serviceType":"Vaccination",
     "url":"https://dittdomene.no/tjenester/vaksinering.html",
     "areaServed":"NO",
-    "provider":{
-      "@type":"MedicalClinic",
-      "name":"Doktor Kliniken Norge"
-    }
+    "provider":{"@type":"MedicalClinic","name":"Doktor Kliniken Norge"}
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"Hvor lang tid tar timen?","acceptedAnswer":{"@type":"Answer","text":"Beregn 15–20 minutter inkludert vurdering og etterobservasjon."}},
+      {"@type":"Question","name":"Hvilke bivirkninger er vanlige?","acceptedAnswer":{"@type":"Answer","text":"Lokal ømhet, tretthet og lett feber kan forekomme kortvarig. Kontakt oss ved kraftige reaksjoner."}},
+      {"@type":"Question","name":"Trenger jeg resept?","acceptedAnswer":{"@type":"Answer","text":"Nei, vaksinen settes på klinikk. Ved behov for forhåndsvurdering bestiller du rådgivningstime."}},
+      {"@type":"Question","name":"Kan dere sette gulfeber?","acceptedAnswer":{"@type":"Answer","text":"Gulfeber kan kreve sertifisert vaksinasjonssenter for internasjonalt sertifikat. Vi gir råd og henviser ved behov."}},
+      {"@type":"Question","name":"Får jeg dokumentasjon på satt vaksine?","acceptedAnswer":{"@type":"Answer","text":"Ja, du får dokumentasjon som beskriver vaksinetype og dose."}}
+    ]
   }
   </script>
 </body>

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Doktor Kliniken Norge – Privat helsehjelp digitalt eller på klinikk</title>
-  <meta name="description" content="Bestill legetime, psykolog eller naprapat. Rask, trygg hjelp med resept, henvisning og oppfølging – digitalt eller på klinikk." />
+  <meta name="description" content="Bestill legetime, psykolog eller naprapat. Rask, trygg hjelp med resept, henvisning og oppfølging – på dine premisser." />
   <link rel="canonical" href="https://dittdomene.no/" />
 
   <!-- Open Graph / Twitter -->
@@ -57,6 +57,8 @@
           <li class="nav__item"><a href="tjenester/index.html" class="nav__link">Tjenester</a></li>
           <li class="nav__item"><a href="priser/index.html" class="nav__link">Priser</a></li>
           <li class="nav__item"><a href="bestill/index.html" class="nav__link">Bestill time</a></li>
+                    <li class="nav__item"><a href="tjenester/vaksinering.html" class="nav__link">Vaksinering</a></li>
+
           <li class="nav__item"><a href="om-oss/index.html" class="nav__link">Om oss</a></li>
           <li class="nav__item"><a href="kontakt/index.html" class="nav__link">Kontakt</a></li>
         </ul>
@@ -146,7 +148,7 @@
           <p class="section__description">Fra timebestilling til oppfølging – trygt og effektivt.</p>
         </div>
 
-        <ol class="steps" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;counter-reset: step;">
+        <ol class="steps grid-autofit-260 gap-1">
           <li class="service__card">
             <h3 class="service__title">Bestill time</h3>
             <p class="service__description">Velg digitalt eller på klinikk på et tidspunkt som passer.</p>
@@ -183,7 +185,7 @@
               <li><i class="fas fa-check" aria-hidden="true"></i> Resept/fornyelse</li>
               <li><i class="fas fa-check" aria-hidden="true"></i> Henvisning ved behov</li>
             </ul>
-            <div style="margin-top:1rem;display:flex;gap:.5rem;flex-wrap:wrap">
+            <div class="buttons-row mt-1">
               <a class="btn btn--secondary btn--small" href="tjenester/legetime.html">Les mer</a>
               <a class="btn btn--primary btn--small"
                  href="#"
@@ -203,7 +205,7 @@
               <li><i class="fas fa-check" aria-hidden="true"></i> Evidensbasert behandling</li>
               <li><i class="fas fa-check" aria-hidden="true"></i> Kort ventetid</li>
             </ul>
-            <div style="margin-top:1rem;display:flex;gap:.5rem;flex-wrap:wrap">
+            <div class="buttons-row mt-1">
               <a class="btn btn--secondary btn--small" href="tjenester/psykolog.html">Les mer</a>
               <a class="btn btn--primary btn--small"
                  href="#"
@@ -222,7 +224,7 @@
               <li><i class="fas fa-check" aria-hidden="true"></i> Behandling og øvelser</li>
               <li><i class="fas fa-check" aria-hidden="true"></i> Oppfølging ved behov</li>
             </ul>
-            <div style="margin-top:1rem;display:flex;gap:.5rem;flex-wrap:wrap">
+            <div class="buttons-row mt-1">
               <a class="btn btn--secondary btn--small" href="tjenester/naprapat-fysio.html">Les mer</a>
               <a class="btn btn--primary btn--small"
                  href="#"
@@ -231,7 +233,7 @@
             </div>
           </article>
 
-          <!-- Vaksinering (NY) -->
+          <!-- Vaksinering -->
           <article class="service__card">
             <div class="service__icon"><i class="fas fa-syringe" aria-hidden="true"></i></div>
             <h3 class="service__title">Vaksinering</h3>
@@ -240,7 +242,7 @@
               <li><i class="fas fa-check" aria-hidden="true"></i> Rådgivning & doseskjema</li>
               <li><i class="fas fa-check" aria-hidden="true"></i> Barne- og voksenprogram</li>
             </ul>
-            <div style="margin-top:1rem;display:flex;gap:.5rem;flex-wrap:wrap">
+            <div class="buttons-row mt-1">
               <a class="btn btn--secondary btn--small" href="tjenester/vaksinering.html">Les mer</a>
               <a class="btn btn--primary btn--small"
                  href="#"
@@ -258,7 +260,7 @@
               <li><i class="fas fa-check" aria-hidden="true"></i> Grunnpakke eller tilpasset</li>
               <li><i class="fas fa-check" aria-hidden="true"></i> Legevurdering av svar</li>
             </ul>
-            <div style="margin-top:1rem;display:flex;gap:.5rem;flex-wrap:wrap">
+            <div class="buttons-row mt-1">
               <a class="btn btn--secondary btn--small" href="tjenester/blodprover.html">Les mer</a>
               <a class="btn btn--primary btn--small"
                  href="#"
@@ -276,7 +278,7 @@
               <li><i class="fas fa-check" aria-hidden="true"></i> Riktig dokumentasjon</li>
               <li><i class="fas fa-check" aria-hidden="true"></i> Kort behandlingstid</li>
             </ul>
-            <div style="margin-top:1rem;display:flex;gap:.5rem;flex-wrap:wrap">
+            <div class="buttons-row mt-1">
               <a class="btn btn--secondary btn--small" href="tjenester/attester.html">Les mer</a>
               <a class="btn btn--primary btn--small"
                  href="#"
@@ -294,7 +296,7 @@
               <li><i class="fas fa-check" aria-hidden="true"></i> Skreddersydde avtaler</li>
               <li><i class="fas fa-check" aria-hidden="true"></i> Fast kontaktpunkt</li>
             </ul>
-            <div style="margin-top:1rem;display:flex;gap:.5rem;flex-wrap:wrap">
+            <div class="buttons-row mt-1">
               <a class="btn btn--secondary btn--small" href="tjenester/bedriftshelse.html">Les mer</a>
               <a class="btn btn--primary btn--small"
                  href="#"
@@ -305,6 +307,256 @@
         </div>
       </div>
     </section>
+
+    <!-- ====================================================== -->
+    <!-- VARIASJONSBLOKK (erstatter kort-tunge seksjoner)     -->
+    <!-- ====================================================== -->
+
+    <!-- 1) Hvorfor Doktor Kliniken (feature-row + ikonliste) 
+    <section class="section" id="hvorfor-oss" aria-labelledby="usp-title">
+      <div class="container">
+        <div class="section__header">
+          <span class="section__subtitle">Hvorfor oss</span>
+          <h2 class="section__title" id="usp-title">Rask hjelp. Høy kvalitet. Null stress.</h2>
+          <p class="section__description">Vi kombinerer tilgjengeligheten til video med tryggheten fra fysisk klinikk.</p>
+        </div>
+
+        <div class="grid-autofit-320 gap-2 align-start">
+        
+          <div>
+            <p class="service__description">Du får kort ventetid, tydelige råd og oppfølging. Når det trengs ordner vi resept, henvisning eller attest – alt journalføres forsvarlig.</p>
+            <p class="service__description">Ikke sikker på om du bør møte fysisk? Start digitalt – vi vurderer og kaller deg inn ved behov.</p>
+          </div>
+
+          <ul class="service__features">
+            <li><i class="fas fa-bolt"></i> Ofte time samme dag</li>
+            <li><i class="fas fa-user-shield"></i> Konfidensiell journal</li>
+            <li><i class="fas fa-mobile-screen"></i> Video eller klinikk</li>
+            <li><i class="fas fa-stethoscope"></i> Rett kompetanse</li>
+            <li><i class="fas fa-hand-holding-heart"></i> Tydelig oppfølging</li>
+            <li><i class="fas fa-calendar-check"></i> Enkel bestilling</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+-->
+    <!-- 2) Digitalt vs. klinikk (tabell) 
+    <section class="section" id="digital-vs-klinikk" aria-labelledby="compare-title">
+      <div class="container">
+        <div class="section__header">
+          <span class="section__subtitle">Valg</span>
+          <h2 class="section__title" id="compare-title">Digitalt eller på klinikk?</h2>
+          <p class="section__description">Velg formatet som passer situasjonen – vi hjelper deg å vurdere.</p>
+        </div>
+
+        <div role="region" aria-label="Sammenligning" class="service__card">
+          <table>
+            <thead>
+              <tr>
+                <th>Situasjon</th>
+                <th>Digital time</th>
+                <th>På klinikk</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Forkjølelse, allergi, reseptfornyelse</td>
+                <td>Som regel egnet</td>
+                <td>Ikke nødvendig</td>
+              </tr>
+              <tr>
+                <td>Hudplager</td>
+                <td>Ofte egnet m/bilde</td>
+                <td>Trengs ved prøver</td>
+              </tr>
+              <tr>
+                <td>Muskel–/skjelettsmerter</td>
+                <td>Start vurdering</td>
+                <td>Undersøkelse/behandling</td>
+              </tr>
+              <tr>
+                <td>Akutt/alvorlig</td>
+                <td>Ikke egnet</td>
+                <td>Ring 113 / legevakt</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+-->
+    <!-- 3) Slik forbereder du timen (callout + sjekkliste) 
+    <section class="section" id="forberedelser" aria-labelledby="prep-title">
+      <div class="container">
+        <div class="section__header">
+          <span class="section__subtitle">Best mulig utbytte</span>
+          <h2 class="section__title" id="prep-title">Slik forbereder du timen</h2>
+          <p class="section__description">Tre enkle grep før time gir raskere og bedre hjelp.</p>
+        </div>
+
+        <div class="service__card">
+          <ul class="service__features">
+            <li><i class="fas fa-check"></i> Notér når det startet, hva forverrer/bedrer, evt. medisiner</li>
+            <li><i class="fas fa-check"></i> Ha legitimasjon, apotek og kontaktinfo klart</li>
+            <li><i class="fas fa-check"></i> For video: rolig sted, stabilt nett, kamera/mikrofon</li>
+          </ul>
+          <div class="buttons-row">
+            <a href="bestill/index.html" class="btn btn--primary btn--small"><i class="fas fa-calendar-check"></i> Bestill time</a>
+            <a href="kontakt/index.html" class="btn btn--secondary btn--small"><i class="fas fa-phone"></i> Spør oss</a>
+          </div>
+        </div>
+      </div>
+    </section>
+-->
+    <!-- 4) Hva vi hjelper med (to-kolonne lister) 
+    <section class="section" id="hva-vi-hjelper-med" aria-labelledby="help-title">
+      <div class="container">
+        <div class="section__header">
+          <span class="section__subtitle">Omfang</span>
+          <h2 class="section__title" id="help-title">Hva vi <span class="section__title-accent">hjelper</span> med</h2>
+          <p class="section__description">Kjappe eksempler. Usikker? Start digitalt.</p>
+        </div>
+
+        <div class="grid-autofit-320 gap-2">
+          <div>
+            <h3 class="service__title"><i class="fas fa-stethoscope"></i> Legetime</h3>
+            <ul class="service__features">
+              <li><i class="fas fa-check"></i> Luftveier, øre/hals/øyne</li>
+              <li><i class="fas fa-check"></i> UVI, hudplager, allergi</li>
+              <li><i class="fas fa-check"></i> Resept/fornyelse, henvisning</li>
+              <li><i class="fas fa-check"></i> Sykmelding vurderes</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="service__title"><i class="fas fa-brain"></i> Psykolog</h3>
+            <ul class="service__features">
+              <li><i class="fas fa-check"></i> Stress, angst, nedstemthet</li>
+              <li><i class="fas fa-check"></i> Søvn og bekymringer</li>
+              <li><i class="fas fa-check"></i> Livskriser og relasjoner</li>
+              <li><i class="fas fa-check"></i> KAT/KBT-samtaler</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="service__title"><i class="fas fa-person-running"></i> Naprapat / Fysio</h3>
+            <ul class="service__features">
+              <li><i class="fas fa-check"></i> Nakke/rygg, skuldre/knær</li>
+              <li><i class="fas fa-check"></i> Akutte smerter, overbelastning</li>
+              <li><i class="fas fa-check"></i> Idrettsskader, hodepine</li>
+              <li><i class="fas fa-check"></i> Øvelser og forebygging</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="service__title"><i class="fas fa-vial"></i> Blodprøver & vaksine</h3>
+            <ul class="service__features">
+              <li><i class="fas fa-check"></i> Helsesjekk, stoffskifte, kolesterol</li>
+              <li><i class="fas fa-check"></i> Vitamin D, jern, HbA1c</li>
+              <li><i class="fas fa-check"></i> Reise- og sesongvaksiner</li>
+              <li><i class="fas fa-check"></i> Rådgivning og doseskjema</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+-->
+    <!-- 5) Priser (definisjonsliste) 
+    <section class="section" id="priser-kort" aria-labelledby="prices-title">
+      <div class="container">
+        <div class="section__header">
+          <span class="section__subtitle">Priser</span>
+          <h2 class="section__title" id="prices-title">Oversikt i korte trekk</h2>
+          <p class="section__description">Se detaljer og vilkår på pris-siden.</p>
+        </div>
+
+        <dl class="service__card">
+          <dt class="service__title"><i class="fas fa-stethoscope"></i> Legetime</dt>
+          <dd class="service__description">Fast pris per konsultasjon. Tillegg for attester og laboratorietjenester.</dd>
+
+          <dt class="service__title"><i class="fas fa-brain"></i> Psykolog</dt>
+          <dd class="service__description">Individuelle samtaler. Mulighet for pakkeforløp. Avbestillingsregler gjelder.</dd>
+
+          <dt class="service__title"><i class="fas fa-person-running"></i> Naprapat / Fysio</dt>
+          <dd class="service__description">Behandling og oppfølging. Øvelser/treningsprogram ved behov.</dd>
+        </dl>
+
+        <div class="mt-1">
+          <a class="btn btn--secondary btn--small" href="priser/index.html">Se priser</a>
+        </div>
+      </div>
+    </section>
+-->
+    <!-- 6) Viktig å vite (varselrad) 
+    <section class="section" id="viktig-a-vite" aria-labelledby="important-title">
+      <div class="container">
+        <div class="section__header">
+          <span class="section__subtitle">Trygghet</span>
+          <h2 class="section__title" id="important-title">Viktig å vite</h2>
+        </div>
+
+        <div class="service__card">
+          <p class="service__description"><i class="fas fa-triangle-exclamation"></i> Ved akutte symptomer: ring <strong>113</strong>.</p>
+          <p class="service__description"><i class="fas fa-prescription-bottle-medical"></i> A- og B-preparater skrives ikke ut digitalt.</p>
+          <p class="service__description"><i class="fas fa-clipboard-check"></i> Sykmelding vurderes individuelt og kan ikke alltid tilbakedateres.</p>
+          <p class="service__description"><i class="fas fa-lock"></i> Ikke send sensitiv info på e-post – bruk time eller skjema.</p>
+        </div>
+      </div>
+    </section>
+-->
+    <!-- 7) Sitatbanner 
+    <section class="section" id="sitater" aria-labelledby="quote-title">
+      <div class="container">
+        <h2 class="section__title" id="quote-title" style="position:absolute;left:-9999px">Pasientsitat</h2>
+        <blockquote class="service__card">
+          «Fikk videokonsultasjon og resept samme dag – veldig ryddig og trygt.»
+          <footer>Anonym pasient</footer>
+        </blockquote>
+      </div>
+    </section>
+-->
+    <!-- 8) FAQ (details) -->
+    <section class="section" id="faq" aria-labelledby="faq-title">
+      <div class="container">
+        <div class="section__header">
+          <span class="section__subtitle">Spørsmål</span>
+          <h2 class="section__title" id="faq-title">Ofte stilte spørsmål</h2>
+          <p class="section__description">Kjappe svar – utvid ved behov.</p>
+        </div>
+
+        <div class="grid-basic gap-075">
+          <details class="service__card">
+            <summary class="service__title">Kan jeg få resept digitalt?</summary>
+            <p class="service__description">Ja, når det er medisinsk forsvarlig. Vanedannende A-/B-preparater gis ikke digitalt.</p>
+          </details>
+          <details class="service__card">
+            <summary class="service__title">Gir dere sykmelding?</summary>
+            <p class="service__description">Vurderes individuelt. Tilbakedatering er begrenset og kan ikke garanteres.</p>
+          </details>
+          <details class="service__card">
+            <summary class="service__title">Hvordan får jeg prøvesvar?</summary>
+            <p class="service__description">Du får beskjed når svar er vurdert. Oppfølging avtales ved behov.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9) CTA bånd (midtstilt) -->
+    <section class="section" id="bedrift-cta" aria-labelledby="biz-title">
+      <div class="container">
+        <div class="section__header">
+          <span class="section__subtitle">For virksomheter</span>
+          <h2 class="section__title" id="biz-title">Bedriftshelse gjort enkelt</h2>
+          <p class="section__description">Skreddersydde avtaler for helsekontroller, sykefravær og HMS-støtte.</p>
+        </div>
+
+        <div class="buttons-row justify-center">
+          <a class="btn btn--primary" href="tjenester/bedriftshelse.html"><i class="fas fa-briefcase-medical"></i> Les mer</a>
+          <a class="btn btn--secondary" href="#" data-calendly="popup" data-calendly-url="https://calendly.com/doktorkliniken/bedrift?hide_gdpr_banner=1&background_color=ffffff&text_color=0a142f&primary_color=0F4C81"><i class="fas fa-envelope-open-text"></i> Be om tilbud</a>
+        </div>
+      </div>
+    </section>
+    <!-- ====================================================== -->
 
     <!-- Anbefalinger -->
     <section class="testimonials section" id="anbefalinger" aria-labelledby="testimonials-title">
